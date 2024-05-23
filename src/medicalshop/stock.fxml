@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="767.0" prefWidth="1578.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicalshop.StockController">
+   <children>
+      <Label layoutX="574.0" layoutY="14.0" prefHeight="40.0" prefWidth="349.0" text="Stock Management">
+         <font>
+            <Font name="Times New Roman Bold" size="36.0" />
+         </font>
+      </Label>
+      <SplitPane dividerPositions="0.22795296632816672" layoutX="41.0" layoutY="84.0" prefHeight="511.0" prefWidth="1498.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="406.0" prefWidth="301.0">
+               <children>
+                  <Label layoutX="23.0" layoutY="24.0" text="Search :">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="searchText" layoutX="96.0" layoutY="25.0" onKeyReleased="#TextKey" prefHeight="26.0" prefWidth="200.0" promptText="Search Medicines" />
+                  <ListView fx:id="listview" layoutX="41.0" layoutY="79.0" onMouseClicked="#listviewMouseClick" prefHeight="202.0" prefWidth="261.0" />
+                  <Label layoutX="84.0" layoutY="294.0" prefHeight="30.0" prefWidth="150.0" style="-fx-alignment: center;" text="Current Stock">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="qtyText" layoutX="85.0" layoutY="330.0" prefHeight="27.0" prefWidth="139.0" style="-fx-alignment: center;" text="-">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="90.0" layoutY="374.0" prefHeight="27.0" prefWidth="126.0" style="-fx-alignment: center;" text="Reorder">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="reorderCount" layoutX="78.0" layoutY="410.0" prefHeight="27.0" prefWidth="139.0" style="-fx-alignment: center;" text="-">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="78.0" layoutY="457.0" mnemonicParsing="false" onAction="#btnDetails" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#E3FF73 0%,#E27C39 100%); -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="See More Details">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="304.0" prefWidth="175.0">
+               <children>
+                  <Button layoutX="467.0" layoutY="426.0" mnemonicParsing="false" onAction="#btnnew" prefHeight="28.0" prefWidth="113.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#184E68 0%,#57CA85 100%); -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="ReOrder " textFill="#f7f3f3">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Button layoutX="607.0" layoutY="426.0" mnemonicParsing="false" onAction="#btnCancel" prefHeight="30.0" prefWidth="94.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#F68670 0%,#EFA451 100%); -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="Cancel" textFill="#faf6f6">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Button>
+                  <Label fx:id="title" layoutX="443.0" layoutY="51.0" text="Medicines ReOrder">
+                     <font>
+                        <Font name="Times New Roman Bold" size="35.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="29.0" layoutY="152.0" text="Medicine ID :">
+                     <font>
+                        <Font name="Times New Roman Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="id" editable="false" layoutX="175.0" layoutY="147.0" prefHeight="25.0" prefWidth="181.0" promptText="Enter Medicine ID">
+                     <font>
+                        <Font name="Times New Roman Bold" size="17.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </TextField>
+                  <Label layoutX="29.0" layoutY="203.0" text="Medicine Name :">
+                     <font>
+                        <Font name="Times New Roman Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="nm" editable="false" layoutX="175.0" layoutY="198.0" prefHeight="25.0" prefWidth="181.0" promptText="Enter Medicine Name">
+                     <font>
+                        <Font name="Times New Roman Bold" size="17.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="29.0" layoutY="250.0" text="Quantity :">
+                     <font>
+                        <Font name="Times New Roman Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="Qt" layoutX="175.0" layoutY="245.0" prefHeight="25.0" prefWidth="181.0" promptText="Enter Quantity">
+                     <font>
+                        <Font name="Times New Roman Bold" size="17.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="29.0" layoutY="295.0" text="Rate :">
+                     <font>
+                        <Font name="Times New Roman Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="rat" layoutX="175.0" layoutY="290.0" onKeyPressed="#multiply" prefHeight="28.0" prefWidth="182.0" promptText="Enter Rate">
+                     <font>
+                        <Font name="Times New Roman Bold" size="17.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="418.0" layoutY="152.0" text="MFG Date :">
+                     <font>
+                        <Font name="Times New Roman Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="419.0" layoutY="199.0" text="Expiry Date :">
+                     <font>
+                        <Font name="Times New Roman Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="mf" layoutX="553.0" layoutY="147.0" prefHeight="26.0" prefWidth="190.0" />
+                  <DatePicker fx:id="ex" layoutX="553.0" layoutY="198.0" prefHeight="26.0" prefWidth="190.0" />
+                  <Label layoutX="415.0" layoutY="249.0" text="Batch :">
+                     <font>
+                        <Font name="Times New Roman Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="batc" layoutX="558.0" layoutY="245.0" prefHeight="28.0" prefWidth="190.0" promptText="Enter Batch no.">
+                     <font>
+                        <Font name="Times New Roman Bold" size="17.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="791.0" layoutY="152.0" text="Amount :">
+                     <font>
+                        <Font name="Times New Roman Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="amot" layoutX="937.0" layoutY="147.0" prefHeight="28.0" prefWidth="190.0" promptText="Enter Amount">
+                     <font>
+                        <Font name="Times New Roman Bold" size="17.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="411.0" layoutY="295.0" text="Company Name :">
+                     <font>
+                        <Font name="Times New Roman Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="company" layoutX="558.0" layoutY="291.0" prefHeight="28.0" prefWidth="190.0" promptText="Enter Company Name">
+                     <font>
+                        <Font name="Times New Roman Bold" size="17.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="791.0" layoutY="201.0" text="Category :">
+                     <font>
+                        <Font name="Times New Roman Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="cat" layoutX="941.0" layoutY="195.0" prefHeight="28.0" prefWidth="182.0" promptText="Enter Category">
+                     <font>
+                        <Font name="Times New Roman Bold" size="17.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="791.0" layoutY="248.0" text="GST 15% :">
+                     <font>
+                        <Font name="Times New Roman Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="gs" layoutX="941.0" layoutY="245.0" prefHeight="25.0" prefWidth="181.0" promptText="15% GST">
+                     <font>
+                        <Font name="Times New Roman Bold" size="17.0" />
+                     </font>
+                  </TextField>
+                  <Label layoutX="791.0" layoutY="296.0" text="Total Amount :">
+                     <font>
+                        <Font name="Times New Roman Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tamot" layoutX="941.0" layoutY="292.0" prefHeight="25.0" prefWidth="181.0" promptText="Total Amount">
+                     <font>
+                        <Font name="Times New Roman Bold" size="17.0" />
+                     </font>
+                  </TextField>
+                  <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="378.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/reorderstock.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="743.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/reorderstock.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <TableView fx:id="tbl" layoutX="36.0" layoutY="658.0" prefHeight="90.0" prefWidth="1512.0">
+         <columns>
+            <TableColumn fx:id="mid" prefWidth="101.60000610351562" text="Medicine_id" />
+            <TableColumn fx:id="mname" prefWidth="123.20001220703125" text="Medicine_Name" />
+            <TableColumn fx:id="qty" minWidth="3.20001220703125" prefWidth="69.59999084472656" text="Quantity" />
+            <TableColumn fx:id="rate" minWidth="0.0" prefWidth="101.60003662109375" text="Rate" />
+            <TableColumn fx:id="mfg_date" minWidth="0.0" prefWidth="133.60003662109375" text="MFG_date" />
+            <TableColumn fx:id="exp_date" prefWidth="112.800048828125" text="Expiry_date" />
+            <TableColumn fx:id="batch" prefWidth="119.20001220703125" text="Batch No." />
+            <TableColumn fx:id="company_name" prefWidth="169.5999755859375" text="Company_Name" />
+            <TableColumn fx:id="amt" minWidth="0.0" prefWidth="136.79998779296875" text="Amount" />
+            <TableColumn fx:id="category" prefWidth="111.20001220703125" text="Category" />
+            <TableColumn fx:id="gst" prefWidth="92.7999267578125" text="GST 15%" />
+            <TableColumn fx:id="tot_amt" prefWidth="130.4000244140625" text="Total Amount" />
+            <TableColumn fx:id="reorder" prefWidth="101.599853515625" />
+         </columns>
+         <cursor>
+            <Cursor fx:constant="DISAPPEAR" />
+         </cursor>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </TableView>
+      <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="508.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/stockicon.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="873.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/stockicon.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

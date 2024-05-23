@@ -1,0 +1,22 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2 May, 2024, 12:45:01 AM
+    Author     : poojajungi
+*/
+
+#AnchorPane{
+    -fx-background-image: url("../images/back.jpg");
+    -fx-background-size: cover;
+}
+#header{
+    -fx-text-fill: linear-gradient(from 0% 0% to 100% 0%,#00188F 0%,#EC008C 100%);
+}
+#txt{
+    -fx-text-fill: linear-gradient(from 0% 0% to 100% 0%,#350068 0%,#FF6978 100%);
+}
+
+

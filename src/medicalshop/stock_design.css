@@ -1,0 +1,18 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 22 May, 2024, 12:13:24 AM
+    Author     : poojajungi
+*/
+#btnReorder{
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#70C700 0%,#0074BF 100%);
+    -fx-text-fill: white;
+    -fx-font-weight:bold;
+    -fx-border-color: white;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-cursor: hand;
+}

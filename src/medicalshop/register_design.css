@@ -1,0 +1,15 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 19 May, 2024, 1:15:03 AM
+    Author     : poojajungi
+*/
+
+
+#AnchorPane{
+    -fx-background-image: url(../images/medi.jpg);
+    -fx-background-size: cover;
+}
