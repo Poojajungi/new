@@ -24,6 +24,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javax.swing.JOptionPane;
 
@@ -105,6 +106,8 @@ public class StockController implements Initializable {
     String cate, name, b,comp;
     float rt, amount, gstt, totamt;
     Date m, expiry;
+    @FXML
+    private AnchorPane panel;
     
     
     
@@ -162,7 +165,7 @@ public class StockController implements Initializable {
         {
                 try {
                    conn =  connect();
-                    PreparedStatement pst = conn.prepareStatement("select mname from reordertbl where mname like '%"+name+"%' || mname like '%"+test+"%'");
+                    PreparedStatement pst = conn.prepareStatement("select mname from reordertbl where mname like '%"+test+"%'");
                     c=0;
                     ResultSet r = pst.executeQuery();
                     while (r.next()) {                        
@@ -225,10 +228,8 @@ public class StockController implements Initializable {
             }
       
                     if (Redisplay()==true) {
-                        System.out.println(c);
                         reorderCount.setText(String.valueOf(c));
                     } else  {
-                        System.out.println("0");
                       reorderCount.setText("0");
                     }
         } catch (Exception e) {
@@ -254,6 +255,8 @@ public class StockController implements Initializable {
                         r.getFloat("tot_amt")));
                 tbl.setItems(listM);
             }
+            listview.getSelectionModel().clearSelection();
+          //  c=0;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e,"See more details ",JOptionPane.ERROR_MESSAGE);
         }
@@ -289,6 +292,7 @@ public class StockController implements Initializable {
                               reorderbtn.setEffect(ds);
                               setGraphic(reorderbtn);
                               reorderbtn.setOnAction(event -> {
+                                  panel.setVisible(true);
                                   id.setText(mid.getCellData(0).toString());
                                  nm.setText(mname.getCellData(0));
                                  Qt.setText(qty.getCellData(0).toString());
@@ -334,15 +338,21 @@ public class StockController implements Initializable {
                inform();
                 if (cr.reOrderAdd( name, qtyy, rt, m, expiry, b, comp, cate, amount, gstt, totamt)>0) {
                     JOptionPane.showMessageDialog(null, "Reorder Successfully.", "Reorder ", JOptionPane.INFORMATION_MESSAGE);
-                   // Redisplay();
-                  
-                    if (Redisplay()==true) {
-                       // System.out.println(c);
-                        reorderCount.setText(String.valueOf(c));
-                    } else {
-                      //  System.out.println(c);
-                      reorderCount.setText("0");
+                 try {
+                   conn =  connect();
+                    PreparedStatement pst = conn.prepareStatement("select mname from reordertbl where mname like '%"+name+"%' ");
+                    c=0;
+                    ResultSet r = pst.executeQuery();
+                   // data = "";
+                    while (r.next()) {                        
+                      data = r.getString("mname") + " ";
+                       c++;
                     }
+                    reorderCount.setText(String.valueOf(c));
+                    listview.getSelectionModel().clearSelection();
+            } catch (Exception e) {
+                    System.out.println(e);
+            }
                     clear();
                     listM.clear();
                 } else {
