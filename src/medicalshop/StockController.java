@@ -25,7 +25,7 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class StockController implements Initializable {
@@ -139,6 +139,7 @@ public class StockController implements Initializable {
                         list.add(r.getString("mname"));
                     }
                     listview.setItems(list);
+                    listview.requestLayout();
             } catch (Exception e) {
                     System.out.println(e);
             }
@@ -242,6 +243,7 @@ public class StockController implements Initializable {
         tbl.setVisible(true);
         String test = listview.getSelectionModel().getSelectedItem();
         listM.clear();
+      
         try {
             PreparedStatement pst = conn.prepareStatement("select * from meditbl where mname like '%"+test+"%'");
             ResultSet r = pst.executeQuery();
@@ -334,25 +336,25 @@ public class StockController implements Initializable {
     @FXML
     private void btnnew(ActionEvent event) {
             try {
-                
-               inform();
+                  String imagepath = "C:\\Users\\poojajungi\\Downloads\\check.png";
+                  ImageIcon  icon = new ImageIcon(imagepath);
+                  inform();
                 if (cr.reOrderAdd( name, qtyy, rt, m, expiry, b, comp, cate, amount, gstt, totamt)>0) {
-                    JOptionPane.showMessageDialog(null, "Reorder Successfully.", "Reorder ", JOptionPane.INFORMATION_MESSAGE);
-                 try {
-                   conn =  connect();
-                    PreparedStatement pst = conn.prepareStatement("select mname from reordertbl where mname like '%"+name+"%' ");
-                    c=0;
-                    ResultSet r = pst.executeQuery();
-                   // data = "";
-                    while (r.next()) {                        
-                      data = r.getString("mname") + " ";
-                       c++;
-                    }
-                    reorderCount.setText(String.valueOf(c));
-                    listview.getSelectionModel().clearSelection();
-            } catch (Exception e) {
-                    System.out.println(e);
-            }
+                    JOptionPane.showMessageDialog(null, "Reorder Successfully.", "Reorder ", JOptionPane.PLAIN_MESSAGE,icon);
+                            try {
+                              conn =  connect();
+                               PreparedStatement pst = conn.prepareStatement("select mname from reordertbl where mname like '%"+name+"%' ");
+                               c=0;
+                               ResultSet r = pst.executeQuery();
+                               while (r.next()) {                        
+                                 data = r.getString("mname") + " ";
+                                  c++;
+                               }
+                               reorderCount.setText(String.valueOf(c));
+                               listview.getSelectionModel().clearSelection();
+                       } catch (Exception e) {
+                               System.out.println(e);
+                       }
                     clear();
                     listM.clear();
                 } else {
