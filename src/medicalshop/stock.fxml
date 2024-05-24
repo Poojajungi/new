@@ -57,7 +57,7 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Button layoutX="78.0" layoutY="457.0" mnemonicParsing="false" onAction="#btnDetails" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#E3FF73 0%,#E27C39 100%); -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="See More Details">
+                  <Button layoutX="78.0" layoutY="457.0" mnemonicParsing="false" onAction="#btnDetails" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#E3FF73 0%,#E27C39 100%); -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="See More Details" textFill="#fcfafa">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -70,7 +70,7 @@
                   </Button>
                </children>
             </AnchorPane>
-          <AnchorPane fx:id="panel" minHeight="0.0" minWidth="0.0" prefHeight="304.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);">
+          <AnchorPane fx:id="panel" minHeight="0.0" minWidth="0.0" prefHeight="304.0" prefWidth="175.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);" visible="false">
                <children>
                   <Button layoutX="467.0" layoutY="426.0" mnemonicParsing="false" onAction="#btnnew" prefHeight="28.0" prefWidth="113.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#184E68 0%,#57CA85 100%); -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="ReOrder " textFill="#f7f3f3">
                      <font>
@@ -231,7 +231,7 @@
             <DropShadow />
          </effect>
       </SplitPane>
-      <TableView fx:id="tbl" layoutX="36.0" layoutY="658.0" prefHeight="90.0" prefWidth="1512.0">
+      <TableView fx:id="tbl" layoutX="36.0" layoutY="658.0" prefHeight="90.0" prefWidth="1512.0" visible="false">
          <columns>
             <TableColumn fx:id="mid" prefWidth="101.60000610351562" text="Medicine_id" />
             <TableColumn fx:id="mname" prefWidth="123.20001220703125" text="Medicine_Name" />
