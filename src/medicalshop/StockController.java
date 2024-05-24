@@ -240,28 +240,35 @@ public class StockController implements Initializable {
 
     @FXML
     private void btnDetails(ActionEvent event) {
-        tbl.setVisible(true);
         String test = listview.getSelectionModel().getSelectedItem();
         listM.clear();
-      
-        try {
-            PreparedStatement pst = conn.prepareStatement("select * from meditbl where mname like '%"+test+"%'");
-            ResultSet r = pst.executeQuery();
-            while (r.next()) {                
-               listM.add(new tbldata(
-                        r.getInt("mid"), r.getString("mname"),
-                        r.getInt("qty"), r.getFloat("rate"),
-                        r.getDate("mfg_date"), r.getDate("exp_date"),
-                        r.getString("batch"), r.getString("company_name"), r.getFloat("amt"),
-                        r.getString("category"), r.getFloat("gst"),
-                        r.getFloat("tot_amt")));
-                tbl.setItems(listM);
-            }
-            listview.getSelectionModel().clearSelection();
-          //  c=0;
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e,"See more details ",JOptionPane.ERROR_MESSAGE);
+        if (listview.getSelectionModel().getSelectedItem()==null) {
+            String imagepath = "C:\\Users\\poojajungi\\Downloads\\hand.png";
+                  ImageIcon  icon = new ImageIcon(imagepath);
+            JOptionPane.showMessageDialog(null, "Please Select the Medicine.","Medicines message",JOptionPane.PLAIN_MESSAGE,icon);
         }
+        else{
+                    try {
+                     tbl.setVisible(true);
+                    PreparedStatement pst = conn.prepareStatement("select * from meditbl where mname like '%"+test+"%'");
+                    ResultSet r = pst.executeQuery();
+                    while (r.next()) {                
+                       listM.add(new tbldata(
+                                r.getInt("mid"), r.getString("mname"),
+                                r.getInt("qty"), r.getFloat("rate"),
+                                r.getDate("mfg_date"), r.getDate("exp_date"),
+                                r.getString("batch"), r.getString("company_name"), r.getFloat("amt"),
+                                r.getString("category"), r.getFloat("gst"),
+                                r.getFloat("tot_amt")));
+                        tbl.setItems(listM);
+                    }
+                    listview.getSelectionModel().clearSelection();
+                  //  c=0;
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e,"See more details ",JOptionPane.ERROR_MESSAGE);
+                }
+        }
+        
     }
     
      public void load()
