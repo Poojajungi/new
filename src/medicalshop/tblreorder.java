@@ -1,9 +1,10 @@
 package medicalshop;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
-public class tbldata {
-           int mid;
+public class tblreorder {
+             int mid;
            String mname;
            int qty;
             float rate;
@@ -14,8 +15,10 @@ public class tbldata {
          String category;
            float gst;
            float tot_amt;
+           Timestamp order_date;
+         
            
-    public tbldata(int mid, String mname, int qty, float rate, Date mfg_date, Date exp_date, String batch, String company_name,float amt, String category, float gst, float tot_amt) {
+    public tblreorder(int mid, String mname, int qty, float rate, Date mfg_date, Date exp_date, String batch, String company_name,float amt, String category, float gst, float tot_amt,Timestamp order_date) {
         this.mid = mid;
         this.mname = mname;
         this.qty = qty;
@@ -28,6 +31,7 @@ public class tbldata {
         this.category = category;
         this.gst = gst;
         this.tot_amt = tot_amt;
+        this.order_date = order_date;
     }
 
     public int getMid() {
@@ -124,6 +128,14 @@ public class tbldata {
 
     public void setTot_amt(float tot_amt) {
         this.tot_amt = tot_amt;
+    }
+
+    public Timestamp getOrder_date() {
+        return order_date;
+    }
+
+    public void setOrder_date(Timestamp order_date) {
+        this.order_date = order_date;
     }
 
 }

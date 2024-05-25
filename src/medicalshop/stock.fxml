@@ -23,7 +23,7 @@
             <Font name="Times New Roman Bold" size="36.0" />
          </font>
       </Label>
-      <SplitPane dividerPositions="0.22795296632816672" layoutX="41.0" layoutY="84.0" prefHeight="511.0" prefWidth="1498.0" style="-fx-border-color: linear-gradient(from 0% 0% to 100% 0%,#6f085a 0%,#c51c53 100%); -fx-border-radius: 10px; -fx-background-radius: 10px;">
+      <SplitPane dividerPositions="0.22795296632816672" layoutX="41.0" layoutY="84.0" prefHeight="511.0" prefWidth="1498.0" style="-fx-border-color: linear-gradient(from 0% 0% to 100% 0%,#6f085a 0%,#c51c53 100%); -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="406.0" prefWidth="301.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);">
                <children>
@@ -33,7 +33,7 @@
                      </font>
                   </Label>
                   <TextField fx:id="searchText" layoutX="96.0" layoutY="25.0" onKeyReleased="#TextKey" prefHeight="26.0" prefWidth="200.0" promptText="Search Medicines" />
-                  <ListView fx:id="listview" layoutX="41.0" layoutY="79.0" onMouseClicked="#listviewMouseClick" prefHeight="202.0" prefWidth="261.0">
+                  <ListView fx:id="listview" layoutX="63.0" layoutY="77.0" onMouseClicked="#listviewMouseClick" prefHeight="202.0" prefWidth="210.0">
                      <effect>
                         <DropShadow />
                      </effect></ListView>
@@ -57,7 +57,7 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Label>
-                  <Button layoutX="78.0" layoutY="457.0" mnemonicParsing="false" onAction="#btnDetails" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#E3FF73 0%,#E27C39 100%); -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="See More Details" textFill="#fcfafa">
+                  <Button layoutX="78.0" layoutY="457.0" mnemonicParsing="false" onAction="#btnDetails" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#E3FF73 0%,#E27C39 100%); -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="See More Details" textFill="#151515">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
