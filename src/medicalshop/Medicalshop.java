@@ -23,14 +23,11 @@ public class Medicalshop extends Application {
      
         Parent root = FXMLLoader.load(getClass().getResource("returnStock.fxml"));
         Scene scene = new Scene(root);
-   //      scene.getStylesheets().add(getClass().getResource("stock_design.css").toExternalForm());
+      //   scene.getStylesheets().add(getClass().getResource("returnStock_design.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
     }

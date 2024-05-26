@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package medicalshop;
 
 import java.io.IOException;
@@ -28,6 +23,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 
 public class ReturnStockController implements Initializable {
@@ -62,12 +59,23 @@ public class ReturnStockController implements Initializable {
     private TableColumn<tblreorder, Float> tot_amt1;
     @FXML
     private TableColumn<tblreorder, Timestamp> order_date1;
-   VieworderController v = new VieworderController();
     @FXML
     private AnchorPane body;
     @FXML
     private Label total;
+    
+     
+     int newid;
+     int  qtyy;
+    String cate, name, b,comp;
+    float rt, amount, gstt, totamt;
+    Date m, expiry;
+    Timestamp ord;
+    String a = "";
+    crud cr = new crud();
+    ObservableList<tblreorder> d = FXCollections.observableArrayList();
    
+       
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -92,18 +100,62 @@ public class ReturnStockController implements Initializable {
         order_date1.setCellValueFactory(new PropertyValueFactory<>("order_date"));
         total.setText(String.valueOf(newtbl.getItems().size()));
        }
-
     @FXML
-    private void btnReturn(ActionEvent event) throws IOException {
-        body.getScene().getWindow().hide();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("vieworder.fxml"));
+    private void btnReturn(ActionEvent event){
+         String imagepath = "C:\\Users\\poojajungi\\Downloads\\delivery.png";
+         String path ="C:\\Users\\poojajungi\\Downloads\\hand.png";
+       ImageIcon icon = new ImageIcon(imagepath);
+       ImageIcon icon2 = new ImageIcon(path);
+       int  n = newtbl.getItems().size();
+        if (n==0) {
+            JOptionPane.showMessageDialog(null, "Please Select the Stocks.","Null Selection",JOptionPane.PLAIN_MESSAGE,icon2);
+        }
+       
+        try {
+            for (int i = 0; i < n; i++) {
+                newid = newtbl.getItems().get(i).mid;
+                name = newtbl.getItems().get(i).mname;
+                qtyy = newtbl.getItems().get(i).qty;
+                rt = newtbl.getItems().get(i).rate;
+                m = newtbl.getItems().get(i).mfg_date;
+                expiry = newtbl.getItems().get(i).exp_date;
+                b = newtbl.getItems().get(i).batch;
+                comp = newtbl.getItems().get(i).company_name;
+                amount = newtbl.getItems().get(i).amt;
+                cate = newtbl.getItems().get(i).category;
+                gstt = newtbl.getItems().get(i).gst;
+                totamt = newtbl.getItems().get(i).tot_amt;
+                ord = newtbl.getItems().get(i).order_date;
+                                
+             a = String.valueOf(newid) ;
+                if (cr.returnAdd(name, qtyy, rt, m, expiry, b, comp, cate, amount, gstt, totamt, ord)>0) {
+                        JOptionPane.showMessageDialog(null, "Stock Return Successfully.","ReturnStock Message",JOptionPane.PLAIN_MESSAGE,icon);
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("vieworder.fxml"));
+                            Parent root = loader.load();
+                            VieworderController r = loader.getController();
+                            r.remove(a);
+                            newtbl.getItems().remove(i);
+                            total.setText("-");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Try Again","ReturnStock Message",JOptionPane.WARNING_MESSAGE);
+                }
+        }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e,"ReturnStock Message",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+  
+    @FXML
+    private void btnSelect(ActionEvent event) throws IOException {
+           body.getScene().getWindow().hide();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("vieworder.fxml"));
              Parent root = loader.load();
              VieworderController r = loader.getController();
               Stage primaryStage = new Stage();
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
-        
     }
             
 }

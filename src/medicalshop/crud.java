@@ -126,5 +126,40 @@ public class crud {
                     return 0;
                 }
           }
+          
+          public int reOrderDelete(int id)
+          {
+              try {
+                    PreparedStatement pst=conn.prepareStatement("delete from reordertbl where mid=?");
+                    pst.setInt(1, id);
+                    return pst.executeUpdate();
+              } catch (Exception e) {
+                  System.out.println(e);
+                  return 0;
+              }
+          }
+          
+          public int returnAdd(String nm,int qty,float r,Date mfg,Date exp,String batc,String comp,String cate,float amt,float g,float ta,Timestamp or)
+          {
+               try {
+                    PreparedStatement pst=conn.prepareStatement("insert into returnstock(mname,qty,rate,mfg_date,exp_date,batch,company_name,amt,category,gst,tot_amt,order_date) values(?,?,?,?,?,?,?,?,?,?,?,?)");
+                    pst.setString(1, nm);
+                    pst.setInt(2, qty);
+                    pst.setFloat(3, r);
+                    pst.setDate(4, mfg);
+                    pst.setDate(5, exp);
+                    pst.setString(6, batc);
+                    pst.setString(7, comp);
+                    pst.setFloat(8, amt);
+                    pst.setString(9, cate);
+                    pst.setFloat(10, g);
+                    pst.setFloat(11, ta);
+                    pst.setTimestamp(12, or);
+                    return pst.executeUpdate();
+                } catch (Exception e) {
+                    System.out.println(e);
+                    return 0;
+                }
+          }
            
 }

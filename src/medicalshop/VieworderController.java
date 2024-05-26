@@ -26,6 +26,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class VieworderController implements Initializable {
@@ -59,17 +60,21 @@ public class VieworderController implements Initializable {
       @FXML
     private TableColumn<tblreorder, Timestamp> order_date;
   
+      crud cr = new crud();
         Connection conn;
        ObservableList<tblreorder> listM = FXCollections.observableArrayList() ;
      ObservableList<tblreorder> da = FXCollections.observableArrayList();
     @FXML
     private AnchorPane Viewbody;
+    @FXML
+    private Button btnsubmit;
        
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         tbl.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         display();
         load();
+         tbl.getSelectionModel().clearSelection();
     }    
 
     public Connection connect()
@@ -121,11 +126,29 @@ public class VieworderController implements Initializable {
                 tot_amt.setCellValueFactory(new PropertyValueFactory<>("tot_amt"));
                 order_date.setCellValueFactory(new PropertyValueFactory<>("order_date"));
     }
+       public void remove(String b)
+       {
+           int p = Integer.parseInt(b);
+           try {
+                if (cr.reOrderDelete(p)>0) {
 
+                } else {
+                    System.out.println("Try Again");
+              }
+           } catch (Exception e) {
+               JOptionPane.showMessageDialog(null, e);
+           }
+       }
       
 
     @FXML
     private void btnReturn(ActionEvent event) {
+       String imagepath = "C:\\Users\\poojajungi\\Downloads\\hand.png";
+       ImageIcon icon = new ImageIcon(imagepath);
+        if (tbl.getSelectionModel().getSelectedItems().size()==0) {
+            JOptionPane.showMessageDialog(null, "Please Select the Items.","Null Selection",JOptionPane.PLAIN_MESSAGE,icon);
+        }
+        else{
         try{
             da = tbl.getSelectionModel().getSelectedItems();
             Viewbody.getScene().getWindow().hide();
@@ -142,6 +165,7 @@ public class VieworderController implements Initializable {
         {
             System.out.println(e);
         }
+    }
     }
 
     

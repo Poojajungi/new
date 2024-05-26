@@ -169,7 +169,7 @@
                         <Font name="Times New Roman Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="amot" layoutX="937.0" layoutY="147.0" prefHeight="28.0" prefWidth="190.0" promptText="Enter Amount">
+                  <TextField fx:id="amot" editable="false" layoutX="937.0" layoutY="147.0" prefHeight="28.0" prefWidth="190.0" promptText="Enter Amount">
                      <font>
                         <Font name="Times New Roman Bold" size="17.0" />
                      </font>
@@ -199,7 +199,7 @@
                         <Font name="Times New Roman Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="gs" layoutX="941.0" layoutY="245.0" prefHeight="25.0" prefWidth="181.0" promptText="15% GST">
+                  <TextField fx:id="gs" editable="false" layoutX="941.0" layoutY="245.0" prefHeight="25.0" prefWidth="181.0" promptText="15% GST">
                      <font>
                         <Font name="Times New Roman Bold" size="17.0" />
                      </font>
@@ -209,7 +209,7 @@
                         <Font name="Times New Roman Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tamot" layoutX="941.0" layoutY="292.0" prefHeight="25.0" prefWidth="181.0" promptText="Total Amount">
+                  <TextField fx:id="tamot" editable="false" layoutX="941.0" layoutY="292.0" prefHeight="25.0" prefWidth="181.0" promptText="Total Amount">
                      <font>
                         <Font name="Times New Roman Bold" size="17.0" />
                      </font>

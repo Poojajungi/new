@@ -14,7 +14,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="body" prefHeight="517.0" prefWidth="1615.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicalshop.ReturnStockController">
    <children>
-      <TableView fx:id="newtbl" layoutX="14.0" layoutY="101.0" prefHeight="186.0" prefWidth="1576.0">
+      <TableView fx:id="newtbl" layoutX="14.0" layoutY="101.0" prefHeight="186.0" prefWidth="1576.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);">
          <columns>
             <TableColumn fx:id="mid1" prefWidth="101.60000610351562" text="Medicine_id" />
             <TableColumn fx:id="mname1" prefWidth="123.20001220703125" text="Medicine_Name" />
@@ -37,7 +37,7 @@
             <InnerShadow />
          </effect>
       </TableView>
-      <Button layoutX="1443.0" layoutY="51.0" mnemonicParsing="false" onAction="#btnReturn" prefHeight="38.0" prefWidth="138.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#1DE5E2 0%,#B588F7 100%); -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="+ Select Stock" textFill="WHITE">
+      <Button layoutX="1443.0" layoutY="51.0" mnemonicParsing="false" onAction="#btnSelect" prefHeight="38.0" prefWidth="138.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#1DE5E2 0%,#B588F7 100%); -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="+ Select Stock" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -69,9 +69,9 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="total" layoutX="1334.0" layoutY="305.0" prefHeight="30.0" prefWidth="86.0" style="-fx-alignment: center;" text="-">
+      <Label fx:id="total" layoutX="1334.0" layoutY="305.0" prefHeight="30.0" prefWidth="78.0" style="-fx-alignment: center;" text="-">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="21.0" />
          </font>
       </Label>
       <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="662.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">

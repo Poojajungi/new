@@ -364,6 +364,8 @@ public class StockController implements Initializable {
                        }
                     clear();
                     listM.clear();
+                    panel.setVisible(false);
+                    tbl.setVisible(false);
                 } else {
                     JOptionPane.showMessageDialog(null, "Try Again.","Reorder",JOptionPane.WARNING_MESSAGE);
                 }
