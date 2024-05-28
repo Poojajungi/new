@@ -33,7 +33,7 @@ public class crud {
               }
           }
           
-             public int insertdate(int id,String nm,int qty,float r,Date mfg,Date exp,String batc,String comp,String cate,float amt,float g,float ta)
+             public int insertdata(int id,String nm,int qty,float r,Date mfg,Date exp,String batc,String comp,String cate,float amt,float g,float ta)
             {
                 try {
                     PreparedStatement pst=conn.prepareStatement("insert into meditbl values(?,?,?,?,?,?,?,?,?,?,?,?)");
@@ -160,6 +160,23 @@ public class crud {
                     System.out.println(e);
                     return 0;
                 }
+          }
+          
+          public int companyAdd(String nm , String snm, String addr,String city,int pin,String st)
+          {
+              try {
+                  PreparedStatement pst = conn.prepareStatement("insert into company(cname,cshortnm,caddress,city,pincode,stockist)values(?,?,?,?,?,?)");
+                  pst.setString(1, nm);
+                  pst.setString(2, snm);
+                  pst.setString(3, addr);
+                  pst.setString(4, city);
+                  pst.setInt(5, pin);
+                  pst.setString(6,st);
+                  return pst.executeUpdate();
+              } catch (Exception e) {
+                  System.out.println(e);
+                  return 0;
+              }
           }
            
 }

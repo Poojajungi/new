@@ -1,5 +1,6 @@
 package medicalshop;
 
+import com.sun.jnlp.ApiDialog;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -17,6 +18,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -128,9 +131,9 @@ public class ReturnStockController implements Initializable {
                 ord = newtbl.getItems().get(i).order_date;
                                 
              a = String.valueOf(newid) ;
-                if (cr.returnAdd(name, qtyy, rt, m, expiry, b, comp, cate, amount, gstt, totamt, ord)>0) {
+              if (cr.returnAdd(name, qtyy, rt, m, expiry, b, comp, cate, amount, gstt, totamt, ord)>0) {
                         JOptionPane.showMessageDialog(null, "Stock Return Successfully.","ReturnStock Message",JOptionPane.PLAIN_MESSAGE,icon);
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("vieworder.fxml"));
+                     FXMLLoader loader = new FXMLLoader(getClass().getResource("vieworder.fxml"));
                             Parent root = loader.load();
                             VieworderController r = loader.getController();
                             r.remove(a);

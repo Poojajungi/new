@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="Viewbody" prefHeight="412.0" prefWidth="1598.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicalshop.VieworderController">
+<AnchorPane id="AnchorPane" fx:id="Viewbody" prefHeight="605.0" prefWidth="1598.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicalshop.VieworderController">
    <children>
-      <TableView fx:id="tbl" layoutX="11.0" layoutY="87.0" prefHeight="186.0" prefWidth="1576.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);">
+      <TableView fx:id="tbl" layoutX="11.0" layoutY="87.0" prefHeight="314.0" prefWidth="1576.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);">
          <columns>
             <TableColumn fx:id="mid" prefWidth="101.60000610351562" text="Medicine_id" />
             <TableColumn fx:id="mname" prefWidth="123.20001220703125" text="Medicine_Name" />
@@ -37,7 +37,7 @@
             <InnerShadow />
          </effect>
       </TableView>
-      <Button fx:id="btnsubmit" layoutX="1461.0" layoutY="306.0" mnemonicParsing="false" onAction="#btnReturn" prefHeight="38.0" prefWidth="122.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#79F1A4 0%,#0E5CAD 100%); -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="Return Stock" textFill="WHITE">
+      <Button fx:id="btnsubmit" layoutX="1450.0" layoutY="439.0" mnemonicParsing="false" onAction="#btnReturn" prefHeight="38.0" prefWidth="122.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#79F1A4 0%,#0E5CAD 100%); -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="Return Stock" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>

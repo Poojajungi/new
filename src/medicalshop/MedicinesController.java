@@ -161,7 +161,7 @@ public class MedicinesController implements Initializable {
     private void btnnew(ActionEvent event) {
         inform();
         try {
-            if (cr.insertdate(newid, name, qtyy, rt, m, expiry, b,comp, cate, amount, gstt, totamt) > 0) {
+            if (cr.insertdata(newid, name, qtyy, rt, m, expiry, b,comp, cate, amount, gstt, totamt) > 0) {
                 JOptionPane.showMessageDialog(null, "Medicines Added Successfully", "Adding ", JOptionPane.INFORMATION_MESSAGE);
                 display();
                 clear();

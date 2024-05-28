@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="body" prefHeight="517.0" prefWidth="1615.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicalshop.ReturnStockController">
+<AnchorPane id="AnchorPane" fx:id="body" prefHeight="606.0" prefWidth="1615.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicalshop.ReturnStockController">
    <children>
-      <TableView fx:id="newtbl" layoutX="14.0" layoutY="101.0" prefHeight="186.0" prefWidth="1576.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);">
+      <TableView fx:id="newtbl" layoutX="14.0" layoutY="101.0" prefHeight="347.0" prefWidth="1576.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);">
          <columns>
             <TableColumn fx:id="mid1" prefWidth="101.60000610351562" text="Medicine_id" />
             <TableColumn fx:id="mname1" prefWidth="123.20001220703125" text="Medicine_Name" />
@@ -53,7 +53,7 @@
             <Font name="Times New Roman Bold" size="36.0" />
          </font>
       </Label>
-      <Button layoutX="1443.0" layoutY="301.0" mnemonicParsing="false" onAction="#btnReturn" prefHeight="38.0" prefWidth="138.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#FF8551 0%,#6C8DFF 100%); -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="Return Stock" textFill="WHITE">
+      <Button layoutX="1451.0" layoutY="482.0" mnemonicParsing="false" onAction="#btnReturn" prefHeight="38.0" prefWidth="138.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#FF8551 0%,#6C8DFF 100%); -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="Return Stock" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -64,31 +64,25 @@
             <DropShadow />
          </effect>
       </Button>
-      <Label layoutX="1129.0" layoutY="305.0" prefHeight="30.0" prefWidth="199.0" style="-fx-alignment: center;" text="Total Return Stock :">
+      <Label layoutX="1137.0" layoutY="486.0" prefHeight="30.0" prefWidth="199.0" style="-fx-alignment: center;" text="Total Return Stock :">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="total" layoutX="1334.0" layoutY="305.0" prefHeight="30.0" prefWidth="78.0" style="-fx-alignment: center;" text="-">
+      <Label fx:id="total" layoutX="1342.0" layoutY="486.0" prefHeight="30.0" prefWidth="78.0" style="-fx-alignment: center;" text="-" textFill="#e27c39">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
       <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="662.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/returnorder.png" />
+            <Image url="@../images/return.png" />
          </image>
-         <effect>
-            <DropShadow />
-         </effect>
       </ImageView>
       <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="948.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/returnorder.png" />
+            <Image url="@../images/return.png" />
          </image>
-         <effect>
-            <DropShadow />
-         </effect>
       </ImageView>
    </children>
 </AnchorPane>
