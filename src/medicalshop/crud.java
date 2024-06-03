@@ -162,21 +162,94 @@ public class crud {
                 }
           }
           
-          public int companyAdd(String nm , String snm, String addr,String city,int pin,String st)
+          public int companyAdd(String nm, String addr,String city,int pin)
           {
               try {
-                  PreparedStatement pst = conn.prepareStatement("insert into company(cname,cshortnm,caddress,city,pincode,stockist)values(?,?,?,?,?,?)");
+                  PreparedStatement pst = conn.prepareStatement("insert into company(cname,caddress,city,pincode)values(?,?,?,?)");
                   pst.setString(1, nm);
-                  pst.setString(2, snm);
-                  pst.setString(3, addr);
-                  pst.setString(4, city);
-                  pst.setInt(5, pin);
-                  pst.setString(6,st);
+                  pst.setString(2, addr);
+                  pst.setString(3, city);
+                  pst.setInt(4, pin);
                   return pst.executeUpdate();
               } catch (Exception e) {
                   System.out.println(e);
                   return 0;
               }
           }
-           
+          public int companyUpdate(String nm, String addr,String city,int pin)
+          {
+                try {
+                  PreparedStatement pst = conn.prepareStatement("update company set caddress=?,city=?,pincode=? where cname=?");
+                  pst.setString(1, addr);
+                  pst.setString(2, city);
+                  pst.setInt(3, pin);
+                  pst.setString(4, nm);
+                  return pst.executeUpdate();
+              } catch (Exception e) {
+                    System.out.println(e);
+                    return 0;
+              }
+          }
+          
+          public int categoryAdd(String nm)
+          {
+              try {
+                  PreparedStatement pst = conn.prepareStatement("insert into categorytbl(category_name)values(?)");
+                  pst.setString(1, nm);
+                  return pst.executeUpdate();
+              } catch (Exception e) {
+                  System.out.println(e);
+                  return 0;
+              }
+          }
+          
+          public int CategoryProduct(String nm,String cate)
+          {
+              try {
+                  int cid=0;
+                  PreparedStatement pst = conn.prepareStatement("select id from categorytbl where category_name like '"+cate+"'");
+                  ResultSet r = pst.executeQuery();
+                  while (r.next()) {                      
+                        cid = r.getInt("id");
+                  }
+                  PreparedStatement ps = conn.prepareStatement("insert into productstbl(product_name,category_id) values(?,?)");
+                  ps.setString(1, nm);
+                  ps.setInt(2, cid);
+                return ps.executeUpdate();
+              } catch (Exception e) {
+                  System.out.println(e);
+                  return 0;
+              }
+          }
+          
+          public int CategoryProductDelete(String nm)
+          {
+              try {
+                  PreparedStatement pst = conn.prepareStatement("delete from productstbl where product_name=?");
+                  pst.setString(1, nm);
+                  return pst.executeUpdate();
+              } catch (Exception e) {
+                  System.out.println(e);
+                  return 0;
+              }
+          }
+         
+          public int CategoryUpdate(String nm,String pro)
+          {
+              try {
+                  int p = 0;
+                  PreparedStatement pst = conn.prepareStatement("select category_id from productstbl where product_name like '"+pro+"'");
+                  ResultSet r = pst.executeQuery();
+                  while (r.next()) {                      
+                      p = r.getInt("category_id");
+                  }
+                  PreparedStatement ps = conn.prepareStatement("update categorytbl set category_name=? where id=?");
+                  ps.setString(1, nm);
+                  ps.setInt(2, p);
+                  return ps.executeUpdate();
+              } catch (Exception e) {
+                  System.out.println(e);
+                  return 0;
+              }
+          }
 }

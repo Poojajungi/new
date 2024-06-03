@@ -115,6 +115,7 @@ public class ReturnStockController implements Initializable {
         }
        
         try {
+            int res=0;
             for (int i = 0; i < n; i++) {
                 newid = newtbl.getItems().get(i).mid;
                 name = newtbl.getItems().get(i).mname;
@@ -131,9 +132,11 @@ public class ReturnStockController implements Initializable {
                 ord = newtbl.getItems().get(i).order_date;
                                 
              a = String.valueOf(newid) ;
+             cr.returnAdd(name, qtyy, rt, m, expiry, b, comp, cate, amount, gstt, totamt, ord);
               if (cr.returnAdd(name, qtyy, rt, m, expiry, b, comp, cate, amount, gstt, totamt, ord)>0) {
-                        JOptionPane.showMessageDialog(null, "Stock Return Successfully.","ReturnStock Message",JOptionPane.PLAIN_MESSAGE,icon);
-                     FXMLLoader loader = new FXMLLoader(getClass().getResource("vieworder.fxml"));
+//                        JOptionPane.showMessageDialog(null, "Stock Return Successfully.","ReturnStock Message",JOptionPane.PLAIN_MESSAGE,icon);
+                             res++;
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("vieworder.fxml"));
                             Parent root = loader.load();
                             VieworderController r = loader.getController();
                             r.remove(a);
@@ -142,7 +145,11 @@ public class ReturnStockController implements Initializable {
                 } else {
                     JOptionPane.showMessageDialog(null, "Try Again","ReturnStock Message",JOptionPane.WARNING_MESSAGE);
                 }
-        }
+            }    
+            if(res>0)
+            {
+                         JOptionPane.showMessageDialog(null, "Stock Return Successfully.","ReturnStock Message",JOptionPane.PLAIN_MESSAGE,icon);
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e,"ReturnStock Message",JOptionPane.ERROR_MESSAGE);
         }

@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
@@ -58,12 +59,14 @@ public class MedicinesController implements Initializable {
     @FXML
     private DatePicker ex;
     @FXML
-    private TextField cat;
+    private ComboBox<String> cat;
     @FXML
     private TextField batc;
 
     crud cr = new crud();
     ObservableList<tbldata> listM = FXCollections.observableArrayList();
+    ObservableList<String> data = FXCollections.observableArrayList();
+    ObservableList<String> list = FXCollections.observableArrayList();
     int index = -1;
     Connection conn = null;
     ResultSet r = null;
@@ -75,10 +78,11 @@ public class MedicinesController implements Initializable {
   
 
     int c;
-    int newid, qtyy;
+    int newid, qtyy,medi_id;
     String cate, name, b,comp;
     float rt, amount, gstt, totamt;
     Date m, expiry;
+    String trans;
     @FXML
     private ImageView reload;
     @FXML
@@ -114,10 +118,23 @@ public class MedicinesController implements Initializable {
     @FXML
     private TableColumn<tbldata, String> company_name;
     @FXML
-    private TextField company;
+    private ComboBox<String> company;
   
     
-    public void inform() {
+   
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        conn = connect();
+        display();
+        load();
+        combo();
+        comboCategory();
+        medi_id++;
+        id.setText(String.valueOf(medi_id));
+    }
+
+     public void inform() {
         newid = Integer.parseInt(id.getText());
         name = nm.getText();
         qtyy = Integer.parseInt(Qt.getText());
@@ -125,9 +142,9 @@ public class MedicinesController implements Initializable {
         m = Date.valueOf(mf.getValue());
         expiry = Date.valueOf(ex.getValue());
         b = batc.getText();
-        comp=company.getText();
+        comp=company.getSelectionModel().getSelectedItem();
         amount = Float.parseFloat(amot.getText());
-        cate = cat.getText();
+        cate = cat.getSelectionModel().getSelectedItem();
         gstt = Float.parseFloat(gs.getText());
         totamt = Float.parseFloat(tamot.getText());
     }
@@ -141,27 +158,23 @@ public class MedicinesController implements Initializable {
             mf.setValue(null);
             ex.setValue(null);
             batc.setText(null);
-            company.setText(null);
-            cat.setText(null);
+            company.getSelectionModel().clearSelection();
+            company.setValue(null);
+            cat.getSelectionModel().clearSelection();
+            cat.setValue(null);
             gs.setText(null);
             amot.setText(null);
             searchText.setText(null);
             tamot.setText(null);
+            medi_id++;
+            id.setText(String.valueOf(medi_id));
     }
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        conn = connect();
-        display();
-        load();
-
-    }
-
+    
     @FXML
     private void btnnew(ActionEvent event) {
         inform();
         try {
-            if (cr.insertdata(newid, name, qtyy, rt, m, expiry, b,comp, cate, amount, gstt, totamt) > 0) {
+            if (cr.insertdata(newid, name, qtyy, rt, m, expiry, b,comp, cate, amount, gstt, totamt) > 0 && cr.CategoryProduct(name,cate)>0) {
                 JOptionPane.showMessageDialog(null, "Medicines Added Successfully", "Adding ", JOptionPane.INFORMATION_MESSAGE);
                 display();
                 clear();
@@ -204,16 +217,43 @@ public class MedicinesController implements Initializable {
         mf.setValue(tbl.getSelectionModel().getSelectedItem().getMfg_date().toLocalDate());
         ex.setValue(tbl.getSelectionModel().getSelectedItem().getExp_date().toLocalDate());
         batc.setText(tbl.getSelectionModel().getSelectedItem().getBatch());
-        company_name.setText(tbl.getSelectionModel().getSelectedItem().getCompany_name());
+        company.setValue(tbl.getSelectionModel().getSelectedItem().getCompany_name());
         amot.setText(String.valueOf(tbl.getSelectionModel().getSelectedItem().getAmt()));
-        cat.setText(tbl.getSelectionModel().getSelectedItem().getCategory());
+        cat.setValue(tbl.getSelectionModel().getSelectedItem().getCategory());
         gs.setText(String.valueOf(tbl.getSelectionModel().getSelectedItem().getGst()));
         tamot.setText(String.valueOf(tbl.getSelectionModel().getSelectedItem().getTot_amt()));
         
         c=tbl.getSelectionModel().getSelectedItem().getMid();
     }
 
-    
+    public void combo()
+    {
+        try {
+            conn = connect();
+            PreparedStatement pst = conn.prepareStatement("select cname from company");
+             r = pst.executeQuery();
+            while (r.next()) {                
+                 data.add(r.getString("cname"));
+             }
+             company.setItems(data);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e,"Company Fetching",JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    public void comboCategory()
+    {
+        try {
+             conn = connect();
+              pst = conn.prepareStatement("select category_name from categorytbl");
+               r = pst.executeQuery();
+               while (r.next()) {                
+                 list.add(r.getString("category_name"));
+             }
+               cat.setItems(list);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e,"Company Fetching",JOptionPane.ERROR_MESSAGE);
+        }
+    }
     public void display() {
         try {
             conn = connect();
@@ -228,6 +268,7 @@ public class MedicinesController implements Initializable {
                         r.getString("batch"), r.getString("company_name"), r.getFloat("amt"),
                         r.getString("category"), r.getFloat("gst"),
                         r.getFloat("tot_amt")));
+                        medi_id=r.getInt("mid");
                 tbl.setItems(listM);
             }
         } catch (Exception e) {
@@ -326,6 +367,7 @@ public class MedicinesController implements Initializable {
                     protected void updateItem(Button button, boolean empty) {
                         super.updateItem(button, empty);
 
+
                         if (empty) {
                             setGraphic(null);
                         } else {
@@ -334,9 +376,11 @@ public class MedicinesController implements Initializable {
                             deleteButton.setPrefWidth(27);
                             setGraphic(deleteButton);
                             deleteButton.setOnAction(event -> {
-                                  int n = getIndex();
+                                int i = getIndex();
+                                int n = tbl.getItems().get(i).getMid();
+                                trans = tbl.getItems().get(i).getMname();
                                     try{
-                                            if (cr.deletedata(n+1)>0) {
+                                            if (cr.deletedata(n)>0 && cr.CategoryProductDelete(trans)>0) {
                                                 JOptionPane.showMessageDialog(null, "Medicine Deleted SuccessFully","Medicines Deletion",JOptionPane.INFORMATION_MESSAGE);
                                                 display();
                                                 clear();
