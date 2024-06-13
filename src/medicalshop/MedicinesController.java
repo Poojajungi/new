@@ -175,7 +175,12 @@ public class MedicinesController implements Initializable {
         inform();
         try {
             if (cr.insertdata(newid, name, qtyy, rt, m, expiry, b,comp, cate, amount, gstt, totamt) > 0 && cr.CategoryProduct(name,cate)>0) {
-                JOptionPane.showMessageDialog(null, "Medicines Added Successfully", "Adding ", JOptionPane.INFORMATION_MESSAGE);
+                if (cr.totalAdd(name,newid)>0) {
+                     JOptionPane.showMessageDialog(null, "Medicines Added Successfully", "Adding ", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else{
+                    System.out.println("try again");
+                }
                 display();
                 clear();
             } else {
@@ -258,7 +263,7 @@ public class MedicinesController implements Initializable {
         try {
             conn = connect();
             listM.clear();
-            PreparedStatement pst = conn.prepareStatement("select *from meditbl");
+            PreparedStatement pst = conn.prepareStatement("select *from meditbl order by mid");
              r = pst.executeQuery();
             while (r.next()) {
                 listM.add(new tbldata(
@@ -381,7 +386,9 @@ public class MedicinesController implements Initializable {
                                 trans = tbl.getItems().get(i).getMname();
                                     try{
                                             if (cr.deletedata(n)>0 && cr.CategoryProductDelete(trans)>0) {
-                                                JOptionPane.showMessageDialog(null, "Medicine Deleted SuccessFully","Medicines Deletion",JOptionPane.INFORMATION_MESSAGE);
+                                                if (cr.totalDelete(n)>0) {
+                                                   JOptionPane.showMessageDialog(null, "Medicine Deleted SuccessFully","Medicines Deletion",JOptionPane.INFORMATION_MESSAGE); 
+                                                }
                                                 display();
                                                 clear();
                                             } else {
@@ -412,7 +419,9 @@ public class MedicinesController implements Initializable {
                                  inform();
                                     try{
                                             if (cr.updatedata(newid, name, qtyy, rt, m, expiry, b,comp, cate, amount, gstt, totamt) >0) {
-                                                JOptionPane.showMessageDialog(null, "Changes are saved SuccessFully","Medicine Changes",JOptionPane.INFORMATION_MESSAGE);
+                                                if (cr.totalUpdate(name, newid)>0) {
+                                                     JOptionPane.showMessageDialog(null, "Changes are saved SuccessFully","Medicine Changes",JOptionPane.INFORMATION_MESSAGE);
+                                                }
                                                 display();
                                                 clear();
                                             } else {
@@ -520,8 +529,6 @@ public class MedicinesController implements Initializable {
             } else if (Character.isDigit(s.charAt(0))) {
                 pst = conn.prepareStatement("select *from meditbl where mid=" + s + " or qty=" + s + " or rate=" + s + "  or amt=" + s + "  or gst=" + s + " or tot_amt=" + s);
             }
-        //    JOptionPane.showMessageDialog(null, pst);
-
              r = pst.executeQuery();
             while (r.next()) {
                 listM.add(new tbldata(

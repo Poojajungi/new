@@ -60,7 +60,7 @@
             <Font name="Times New Roman Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="rat" layoutX="499.0" layoutY="101.0" onKeyPressed="#multiply" prefHeight="28.0" prefWidth="190.0" promptText="Enter Rate">
+      <TextField fx:id="rat" layoutX="499.0" layoutY="101.0" onKeyReleased="#multiply" prefHeight="28.0" prefWidth="190.0" promptText="Enter Rate">
          <font>
             <Font name="Times New Roman Bold" size="15.0" />
          </font>

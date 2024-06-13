@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="1861.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicalshop.CompanyReturnController">
+   <children>
+      <TableView fx:id="tbl" layoutX="35.0" layoutY="120.0" prefHeight="347.0" prefWidth="1791.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);">
+         <columns>
+            <TableColumn fx:id="mid" prefWidth="101.60000610351562" text="Medicine_id" />
+            <TableColumn fx:id="mname" prefWidth="123.20001220703125" text="Medicine_Name" />
+            <TableColumn fx:id="qty" minWidth="3.20001220703125" prefWidth="69.59999084472656" text="Quantity" />
+            <TableColumn fx:id="rate" minWidth="0.0" prefWidth="101.60003662109375" text="Rate" />
+            <TableColumn fx:id="mfg_date" minWidth="0.0" prefWidth="133.60003662109375" text="MFG_date" />
+            <TableColumn fx:id="exp_date" prefWidth="112.800048828125" text="Expiry_date" />
+            <TableColumn fx:id="batch" prefWidth="119.20001220703125" text="Batch No." />
+            <TableColumn fx:id="company_name" prefWidth="169.5999755859375" text="Company_Name" />
+            <TableColumn fx:id="amt" minWidth="0.0" prefWidth="136.79998779296875" text="Amount" />
+            <TableColumn fx:id="category" prefWidth="111.20001220703125" text="Category" />
+            <TableColumn fx:id="gst" prefWidth="92.7999267578125" text="GST 15%" />
+            <TableColumn fx:id="tot_amt" prefWidth="108.0" text="Total Amount" />
+            <TableColumn fx:id="order_date" prefWidth="189.60009765625" text="Reorder Date &amp; Time" />
+            <TableColumn fx:id="return_date" prefWidth="212.7999267578125" text="Return_Order Date &amp; Time" />
+         </columns>
+         <cursor>
+            <Cursor fx:constant="DISAPPEAR" />
+         </cursor>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </TableView>
+      <Label layoutX="619.0" layoutY="39.0" prefHeight="40.0" prefWidth="535.0" style="-fx-text-fill: linear-gradient(from 0% 0% to 100% 0%,#6f085a 0%,#c51c53 100%);" text="Company Received Return Stock">
+         <font>
+            <Font name="Times New Roman Bold" size="36.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="553.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/return.png" />
+         </image>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </ImageView>
+      <ImageView fitHeight="51.0" fitWidth="56.0" layoutX="1142.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/return.png" />
+         </image>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </ImageView>
+   </children>
+</AnchorPane>

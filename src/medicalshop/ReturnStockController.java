@@ -5,9 +5,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Date;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -132,9 +129,8 @@ public class ReturnStockController implements Initializable {
                 ord = newtbl.getItems().get(i).order_date;
                                 
              a = String.valueOf(newid) ;
-             cr.returnAdd(name, qtyy, rt, m, expiry, b, comp, cate, amount, gstt, totamt, ord);
+          //   cr.returnAdd(name, qtyy, rt, m, expiry, b, comp, cate, amount, gstt, totamt, ord);
               if (cr.returnAdd(name, qtyy, rt, m, expiry, b, comp, cate, amount, gstt, totamt, ord)>0) {
-//                        JOptionPane.showMessageDialog(null, "Stock Return Successfully.","ReturnStock Message",JOptionPane.PLAIN_MESSAGE,icon);
                              res++;
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("vieworder.fxml"));
                             Parent root = loader.load();
