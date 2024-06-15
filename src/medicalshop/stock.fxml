@@ -36,7 +36,10 @@
                   <ListView fx:id="listview" layoutX="63.0" layoutY="77.0" onMouseClicked="#listviewMouseClick" prefHeight="202.0" prefWidth="210.0">
                      <effect>
                         <DropShadow />
-                     </effect></ListView>
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></ListView>
                   <Label layoutX="84.0" layoutY="294.0" prefHeight="30.0" prefWidth="150.0" style="-fx-alignment: center;" text="Current Stock">
                      <font>
                         <Font name="System Bold" size="20.0" />
@@ -137,7 +140,7 @@
                         <Font name="Times New Roman Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="rat" layoutX="175.0" layoutY="290.0" onKeyPressed="#multiply" prefHeight="28.0" prefWidth="182.0" promptText="Enter Rate">
+                  <TextField fx:id="rat" layoutX="175.0" layoutY="290.0" onKeyReleased="#multiply" prefHeight="28.0" prefWidth="182.0" promptText="Enter Rate">
                      <font>
                         <Font name="Times New Roman Bold" size="17.0" />
                      </font>
@@ -152,14 +155,20 @@
                         <Font name="Times New Roman Bold" size="20.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="mf" layoutX="553.0" layoutY="147.0" prefHeight="26.0" prefWidth="190.0" />
-                  <DatePicker fx:id="ex" layoutX="553.0" layoutY="198.0" prefHeight="26.0" prefWidth="190.0" />
+                  <DatePicker fx:id="mf" layoutX="553.0" layoutY="147.0" prefHeight="26.0" prefWidth="190.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></DatePicker>
+                  <DatePicker fx:id="ex" layoutX="553.0" layoutY="198.0" prefHeight="26.0" prefWidth="190.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></DatePicker>
                   <Label layoutX="415.0" layoutY="249.0" text="Batch :">
                      <font>
                         <Font name="Times New Roman Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="batc" layoutX="558.0" layoutY="245.0" prefHeight="28.0" prefWidth="190.0" promptText="Enter Batch no.">
+                  <TextField fx:id="batc" editable="false" layoutX="558.0" layoutY="245.0" prefHeight="28.0" prefWidth="190.0" promptText="Enter Batch no.">
                      <font>
                         <Font name="Times New Roman Bold" size="17.0" />
                      </font>
@@ -179,7 +188,7 @@
                         <Font name="Times New Roman Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="company" layoutX="558.0" layoutY="291.0" prefHeight="28.0" prefWidth="190.0" promptText="Enter Company Name">
+                  <TextField fx:id="company" editable="false" layoutX="558.0" layoutY="291.0" prefHeight="28.0" prefWidth="190.0" promptText="Enter Company Name">
                      <font>
                         <Font name="Times New Roman Bold" size="17.0" />
                      </font>
@@ -189,7 +198,7 @@
                         <Font name="Times New Roman Bold" size="20.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="cat" layoutX="941.0" layoutY="195.0" prefHeight="28.0" prefWidth="182.0" promptText="Enter Category">
+                  <TextField fx:id="cat" editable="false" layoutX="941.0" layoutY="195.0" prefHeight="28.0" prefWidth="182.0" promptText="Enter Category">
                      <font>
                         <Font name="Times New Roman Bold" size="17.0" />
                      </font>

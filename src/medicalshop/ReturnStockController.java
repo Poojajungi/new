@@ -131,7 +131,9 @@ public class ReturnStockController implements Initializable {
              a = String.valueOf(newid) ;
           //   cr.returnAdd(name, qtyy, rt, m, expiry, b, comp, cate, amount, gstt, totamt, ord);
               if (cr.returnAdd(name, qtyy, rt, m, expiry, b, comp, cate, amount, gstt, totamt, ord)>0) {
-                             res++;
+                  if (cr.totalUpdateReturn(name)>0) {
+                      res++;
+                  }
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("vieworder.fxml"));
                             Parent root = loader.load();
                             VieworderController r = loader.getController();

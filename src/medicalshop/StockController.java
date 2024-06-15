@@ -347,7 +347,10 @@ public class StockController implements Initializable {
                   ImageIcon  icon = new ImageIcon(imagepath);
                   inform();
                 if (cr.reOrderAdd( name, qtyy, rt, m, expiry, b, comp, cate, amount, gstt, totamt)>0) {
-                    JOptionPane.showMessageDialog(null, "Reorder Successfully.", "Reorder ", JOptionPane.PLAIN_MESSAGE,icon);
+                    if (cr.totalUpdateReOrder(name)>0) {
+                        JOptionPane.showMessageDialog(null, "Reorder Successfully.", "Reorder ", JOptionPane.PLAIN_MESSAGE,icon);
+                    }
+                    
                             try {
                               conn =  connect();
                                PreparedStatement pst = conn.prepareStatement("select mname from reordertbl where mname like '%"+name+"%' ");

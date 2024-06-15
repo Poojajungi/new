@@ -279,11 +279,42 @@ public class crud {
               }
           }
           
+          public int totalUpdateReOrder(String nm)
+          {
+              try {
+                  int c = 0;
+                  PreparedStatement ps = conn.prepareStatement("select reorder from totaltbl where medi_name like '%"+nm+"%'");
+                  ResultSet r = ps.executeQuery();
+                  while (r.next()) {                      
+                      c = r.getInt("reorder");
+                  }
+                  c++;
+                  PreparedStatement pst = conn.prepareStatement("update totaltbl set reorder=? where medi_name=?");
+                  pst.setInt(1, c);
+                  pst.setString(2, nm);
+                  return  pst.executeUpdate();
+              } catch (Exception e) {
+                  System.out.println(e);
+                  return 0;
+              }
+          }
+          
           public int totalUpdateReturn(String nm)
           {
               try {
-                  PreparedStatement pst = conn.prepareStatement("update totaltbl set returnsto='yes' where medi_name=?");
-                  pst.setString(1, nm);
+                  int c = 0,p=0;
+                  PreparedStatement ps = conn.prepareStatement("select returnsto,reorder from totaltbl where medi_name like '%"+nm+"%'");
+                  ResultSet r = ps.executeQuery();
+                  while (r.next()) {                      
+                      c = r.getInt("returnsto");
+                      p = r.getInt("reorder");
+                  }
+                  c++;
+                  p--;
+                  PreparedStatement pst = conn.prepareStatement("update totaltbl set returnsto=?,reorder=? where medi_name=?");
+                  pst.setInt(1, c);
+                  pst.setInt(2, p);
+                  pst.setString(3, nm);
                   return  pst.executeUpdate();
               } catch (Exception e) {
                   System.out.println(e);
