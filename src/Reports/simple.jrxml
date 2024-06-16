@@ -5,7 +5,7 @@
 	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[select t.id,m.mname,m.qty,t.current_stock,t.reorder,t.returnsto from totaltbl t
-join meditbl m where m.mid = t.medicine_id; ]]>
+join meditbl m where m.mid = t.medicine_id;]]>
 	</queryString>
 	<field name="id" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -69,42 +69,42 @@ join meditbl m where m.mid = t.medicine_id; ]]>
 	<columnHeader>
 		<band height="27" splitType="Stretch">
 			<staticText>
-				<reportElement x="68" y="0" width="110" height="20" forecolor="#006666" uuid="3aba101e-b558-409b-a3fe-576c3c767026"/>
+				<reportElement x="68" y="0" width="110" height="20" forecolor="#00CCCC" uuid="3aba101e-b558-409b-a3fe-576c3c767026"/>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[MedicineName]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="191" y="0" width="84" height="20" forecolor="#006666" uuid="fba0c32c-a408-4a7e-a48f-f1266ac20152"/>
+				<reportElement x="191" y="0" width="84" height="20" forecolor="#00CCCC" uuid="fba0c32c-a408-4a7e-a48f-f1266ac20152"/>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Total Stock]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="288" y="0" width="99" height="20" forecolor="#006666" uuid="3c3b65fb-e84f-4dd6-95c1-cca94bd1dd68"/>
+				<reportElement x="288" y="0" width="99" height="20" forecolor="#00CCCC" uuid="3c3b65fb-e84f-4dd6-95c1-cca94bd1dd68"/>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Current Stock]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="397" y="0" width="64" height="20" forecolor="#006666" uuid="331b23b8-ca1c-4a1f-a03c-b55f645be6b3"/>
+				<reportElement x="397" y="0" width="64" height="20" forecolor="#00CCCC" uuid="331b23b8-ca1c-4a1f-a03c-b55f645be6b3"/>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Reorder]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="481" y="0" width="56" height="20" forecolor="#006666" uuid="2e19f4a2-b215-41eb-b60d-bef9fa441d44"/>
+				<reportElement x="481" y="0" width="56" height="20" forecolor="#00CCCC" uuid="2e19f4a2-b215-41eb-b60d-bef9fa441d44"/>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Return]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="27" y="0" width="41" height="20" forecolor="#006666" uuid="185fa504-bd28-42d2-a668-bd580364fb52"/>
+				<reportElement x="27" y="0" width="41" height="20" forecolor="#00CCCC" uuid="185fa504-bd28-42d2-a668-bd580364fb52"/>
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
@@ -113,7 +113,7 @@ join meditbl m where m.mid = t.medicine_id; ]]>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="25" splitType="Stretch">
+		<band height="31" splitType="Stretch">
 			<textField>
 				<reportElement x="27" y="0" width="41" height="20" uuid="214b18ba-0bf2-4a75-a0b7-95e21621a6f4"/>
 				<textElement>
@@ -159,15 +159,7 @@ join meditbl m where m.mid = t.medicine_id; ]]>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="24" splitType="Stretch">
-			<textField>
-				<reportElement x="424" y="0" width="136" height="20" uuid="b1cf159a-ecf7-44f4-ae66-29db19cfbf31"/>
-				<textElement>
-					<font size="12" isBold="true"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Total Medicines : "+$V{COLUMN_COUNT}]]></textFieldExpression>
-			</textField>
-		</band>
+		<band height="8" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="22" splitType="Stretch">
@@ -188,6 +180,14 @@ join meditbl m where m.mid = t.medicine_id; ]]>
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="4" splitType="Stretch"/>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="401" y="6" width="136" height="20" forecolor="#006666" uuid="b1cf159a-ecf7-44f4-ae66-29db19cfbf31"/>
+				<textElement>
+					<font size="12" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total Medicines : "+$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
 	</summary>
 </jasperReport>
