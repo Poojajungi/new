@@ -25,6 +25,18 @@ join meditbl m where m.mid = t.medicine_id;]]>
 	<field name="returnsto" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<variable name="variable1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{qty}]]></variableExpression>
+	</variable>
+	<variable name="CS" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{current_stock}]]></variableExpression>
+	</variable>
+	<variable name="reorder" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{reorder}]]></variableExpression>
+	</variable>
+	<variable name="return" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{returnsto}]]></variableExpression>
+	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -162,16 +174,16 @@ join meditbl m where m.mid = t.medicine_id;]]>
 		<band height="8" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="22" splitType="Stretch">
+		<band height="23">
 			<textField>
-				<reportElement x="426" y="0" width="80" height="20" uuid="6ad797b6-2df9-42f7-807b-65eb2b0b3e15"/>
+				<reportElement x="461" y="0" width="80" height="20" uuid="9955b1d6-53eb-4df0-89d3-57d45bc74259"/>
 				<textElement textAlignment="Right">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="506" y="0" width="54" height="20" uuid="242203c5-672e-4d22-b137-853ef1864552"/>
+				<reportElement x="541" y="0" width="47" height="20" uuid="5500b1ea-9a20-4d65-8a75-3327aa7f8e1c"/>
 				<textElement>
 					<font size="12" isBold="true"/>
 				</textElement>
@@ -180,14 +192,54 @@ join meditbl m where m.mid = t.medicine_id;]]>
 		</band>
 	</pageFooter>
 	<summary>
-		<band height="26" splitType="Stretch">
-			<textField>
-				<reportElement x="401" y="6" width="136" height="20" forecolor="#006666" uuid="b1cf159a-ecf7-44f4-ae66-29db19cfbf31"/>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="68" y="7" width="53" height="20" forecolor="#006666" uuid="1e286981-ecbe-46bb-9844-095deb77867a"/>
 				<textElement>
-					<font size="12" isBold="true" isItalic="false" isUnderline="false"/>
+					<font size="14" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Total Medicines : "+$V{COLUMN_COUNT}]]></textFieldExpression>
+				<text><![CDATA[Total :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="224" y="8" width="30" height="20" forecolor="#006666" uuid="e0a299f0-3048-42e7-82c0-8c906a2fa6fe"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{variable1}]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement x="212" y="6" width="42" height="1" uuid="4a6980a6-f5e5-4247-aa82-37a7299a38db"/>
+			</line>
+			<textField>
+				<reportElement x="333" y="8" width="24" height="17" forecolor="#006666" uuid="4e807d2b-ba89-4fd7-b417-9854391cd4c0"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{CS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="425" y="8" width="30" height="20" forecolor="#006666" uuid="05877d1d-adb5-4805-9be5-78140540a43e"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{reorder}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="509" y="9" width="42" height="19" forecolor="#006666" uuid="0ce894c9-a399-47d9-9d2b-a869e4278f06"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{return}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="315" y="6" width="42" height="1" uuid="ef4d306a-48f0-4df1-92a4-1cc7b1d5f8ec"/>
+			</line>
+			<line>
+				<reportElement x="413" y="6" width="42" height="1" uuid="821a99e7-6260-4c6f-8039-5e21c2f05b61"/>
+			</line>
+			<line>
+				<reportElement x="495" y="6" width="42" height="1" uuid="9d4dd624-168d-4e07-bff6-0e153d2e423d"/>
+			</line>
 		</band>
 	</summary>
 </jasperReport>
