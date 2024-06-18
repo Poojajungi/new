@@ -174,21 +174,25 @@ join meditbl m where m.mid = t.medicine_id;]]>
 		<band height="8" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="23">
+		<band height="101">
 			<textField>
-				<reportElement x="461" y="0" width="80" height="20" uuid="9955b1d6-53eb-4df0-89d3-57d45bc74259"/>
+				<reportElement x="471" y="81" width="80" height="20" uuid="9955b1d6-53eb-4df0-89d3-57d45bc74259"/>
 				<textElement textAlignment="Right">
 					<font size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement x="541" y="0" width="47" height="20" uuid="5500b1ea-9a20-4d65-8a75-3327aa7f8e1c"/>
+				<reportElement x="551" y="81" width="47" height="20" uuid="5500b1ea-9a20-4d65-8a75-3327aa7f8e1c"/>
 				<textElement>
 					<font size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
+			<image>
+				<reportElement x="411" y="0" width="187" height="68" uuid="2712d84b-3deb-4b24-a004-98e3ff46a74a"/>
+				<imageExpression><![CDATA["C:\\Users\\poojajungi\\OneDrive\\Pictures\\Screenshots\\Screenshot 2024-06-18 181720.png"]]></imageExpression>
+			</image>
 		</band>
 	</pageFooter>
 	<summary>
