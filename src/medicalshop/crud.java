@@ -15,6 +15,19 @@ public class crud {
             }
           
         }
+        
+        public Connection connect()
+        {
+                 try {
+                  Class.forName("com.mysql.jdbc.Driver");
+                 conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/medical_store","root","");
+                 return conn;
+                } catch (Exception e) {
+                     System.out.println(e);
+                     return null;
+                }
+        }
+        
           public boolean log(String unm,String passw)
           {
                 try {

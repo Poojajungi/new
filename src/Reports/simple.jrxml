@@ -3,6 +3,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<parameter name="imgExp" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select t.id,m.mname,m.qty,t.current_stock,t.reorder,t.returnsto from totaltbl t
 join meditbl m where m.mid = t.medicine_id;]]>
@@ -191,7 +192,7 @@ join meditbl m where m.mid = t.medicine_id;]]>
 			</textField>
 			<image>
 				<reportElement x="411" y="0" width="187" height="68" uuid="2712d84b-3deb-4b24-a004-98e3ff46a74a"/>
-				<imageExpression><![CDATA["C:\\Users\\poojajungi\\OneDrive\\Pictures\\Screenshots\\Screenshot 2024-06-18 181720.png"]]></imageExpression>
+				<imageExpression><![CDATA[$P{imgExp}]]></imageExpression>
 			</image>
 		</band>
 	</pageFooter>
