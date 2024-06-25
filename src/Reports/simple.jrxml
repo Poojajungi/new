@@ -50,9 +50,9 @@ join meditbl m where m.mid = t.medicine_id;]]>
 				</graphicElement>
 			</rectangle>
 			<staticText>
-				<reportElement x="68" y="11" width="345" height="47" forecolor="#FFFFFF" uuid="c28e6851-327b-40cb-bb3a-c19e8c3bae08"/>
+				<reportElement x="136" y="11" width="345" height="47" forecolor="#FFFFFF" uuid="c28e6851-327b-40cb-bb3a-c19e8c3bae08"/>
 				<textElement>
-					<font size="31" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+					<font fontName="Times New Roman" size="31" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
 				</textElement>
 				<text><![CDATA[Shivam Medical Shop]]></text>
 			</staticText>
@@ -70,7 +70,7 @@ join meditbl m where m.mid = t.medicine_id;]]>
 			<staticText>
 				<reportElement x="212" y="72" width="163" height="36" forecolor="#FFFFFF" uuid="78a76d22-106e-4a9a-9301-46f8ae1fd5a0"/>
 				<textElement>
-					<font size="26" isBold="true" isStrikeThrough="false"/>
+					<font fontName="Times New Roman" size="26" isBold="true" isStrikeThrough="false"/>
 				</textElement>
 				<text><![CDATA[Stock Report]]></text>
 			</staticText>
