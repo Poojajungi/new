@@ -175,7 +175,7 @@ join meditbl m where m.mid = t.medicine_id;]]>
 		<band height="8" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="101">
+		<band height="103">
 			<textField>
 				<reportElement x="471" y="81" width="80" height="20" uuid="9955b1d6-53eb-4df0-89d3-57d45bc74259"/>
 				<textElement textAlignment="Right">

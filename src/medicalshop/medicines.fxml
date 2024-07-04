@@ -100,12 +100,12 @@
             <Font name="Times New Roman Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="1095.0" layoutY="157.0" text="GST 15% :">
+      <Label layoutX="1095.0" layoutY="157.0" text="GST 18% :">
          <font>
             <Font name="Times New Roman Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="gs" layoutX="1229.0" layoutY="154.0" prefHeight="25.0" prefWidth="181.0" promptText="15% GST">
+      <TextField fx:id="gs" layoutX="1229.0" layoutY="154.0" prefHeight="25.0" prefWidth="181.0" promptText="18% GST">
          <font>
             <Font name="Times New Roman Bold" size="15.0" />
          </font>
@@ -152,7 +152,7 @@
             <TableColumn fx:id="company_name" prefWidth="169.5999755859375" text="Company_Name" />
             <TableColumn fx:id="amt" minWidth="0.0" prefWidth="136.79998779296875" text="Amount" />
             <TableColumn fx:id="category" prefWidth="111.20001220703125" text="Category" />
-            <TableColumn fx:id="gst" prefWidth="92.7999267578125" text="GST 15%" />
+            <TableColumn fx:id="gst" prefWidth="92.7999267578125" text="GST 18%" />
             <TableColumn fx:id="tot_amt" prefWidth="140.7999267578125" text="Total Amount" />
             <TableColumn fx:id="editcol" prefWidth="49.5999755859375" />
             <TableColumn fx:id="action" prefWidth="47.199951171875" />

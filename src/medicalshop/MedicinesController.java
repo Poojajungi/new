@@ -201,7 +201,7 @@ public class MedicinesController implements Initializable {
                 float b = Float.parseFloat(rat.getText());
                 amot.setText(String.valueOf(a * b));
                 float at = Float.parseFloat(amot.getText());
-                gs.setText(String.valueOf((at * 15) / 100));
+                gs.setText(String.valueOf((at * 18) / 100));
                 float gss = Float.parseFloat(gs.getText());
                 tamot.setText(String.valueOf(at + gss));
             }
