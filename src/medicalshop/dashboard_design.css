@@ -7,5 +7,18 @@ and open the template in the editor.
     Created on : 6 Jul, 2024, 8:39:50 PM
     Author     : poojajungi
 */
-
-
+.menu-button .arrow {
+  -fx-background-color: transparent;
+}
+#p1{
+    -fx-background-color:  linear-gradient(from 0% 0% to 100% 0%,#B7E9F7 0%,#DBF3FA 100%);
+}
+#p1:hover{
+    -fx-textfill:black;
+}
+#c1{
+    -fx-background-color:  linear-gradient(from 0% 0% to 100% 0%,#B7E9F7 0%,#DBF3FA 100%);
+}
+#c2{
+    -fx-background-color:  linear-gradient(from 0% 0% to 100% 0%,#B7E9F7 0%,#DBF3FA 100%);
+}

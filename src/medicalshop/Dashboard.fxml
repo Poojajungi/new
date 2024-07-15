@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
@@ -10,31 +12,34 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane fx:id="split" dividerPositions="0.16129366642479526" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="705.0" prefWidth="1931.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicalshop.DashboardController">
+<SplitPane fx:id="split" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="771.0" prefWidth="2022.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicalshop.DashboardController">
   <items>
-    <AnchorPane fx:id="pane1" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(to bottom,#0C7BB3,#9EBAF3);">
+    <AnchorPane fx:id="pane1" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="251.0" style="-fx-background-color: linear-gradient(to bottom,#0C7BB3,#9EBAF3);">
          <children>
-            <ImageView fx:id="imgdash" fitHeight="77.0" fitWidth="90.0" layoutX="93.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imgdash" fitHeight="72.0" fitWidth="66.0" layoutX="81.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/logo.jpg" />
                </image>
             </ImageView>
-            <VBox layoutX="30.0" layoutY="151.0" prefHeight="408.0" prefWidth="232.0">
+            <VBox layoutX="14.0" layoutY="148.0" prefHeight="408.0" prefWidth="232.0">
                <children>
-                  <MenuButton fx:id="menu11" mnemonicParsing="false" prefHeight="55.0" prefWidth="232.0" style="-fx-background-color: transparent;" text="Patient Master" textFill="WHITE">
+                  <MenuButton mnemonicParsing="false" prefHeight="55.0" prefWidth="232.0" style="-fx-background-color: transparent;" styleClass="my-menu-button" text="Patient Master" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                      <items>
-                        <MenuItem fx:id="p1" mnemonicParsing="false" style="-fx-font-size: 17px;" text="Manage Patients Record" />
+                        <MenuItem fx:id="p1" mnemonicParsing="false" style="-fx-font-size: 17px; -fx-cursor: hand;" text="Manage Patients Record" />
                      </items>
                      <effect>
                         <DropShadow />
                      </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </MenuButton>
                   <MenuButton fx:id="menu111" mnemonicParsing="false" prefHeight="55.0" prefWidth="232.0" style="-fx-background-color: transparent;" text="Manage Category" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                      <items>
                         <MenuItem fx:id="c1" mnemonicParsing="false" onAction="#cateClick" style="-fx-font-size: 17px;" text="Add Category" />
@@ -43,10 +48,13 @@
                      <effect>
                         <DropShadow />
                      </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </MenuButton>
                   <MenuButton mnemonicParsing="false" prefHeight="55.0" prefWidth="232.0" style="-fx-background-color: transparent;" text="Invoice" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                      <items>
                         <MenuItem fx:id="i1" mnemonicParsing="false" style="-fx-font-size: 17px;" text="Generate Bill" />
@@ -56,10 +64,13 @@
                      <effect>
                         <DropShadow />
                      </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </MenuButton>
                   <MenuButton fx:id="menu11111" mnemonicParsing="false" prefHeight="55.0" prefWidth="232.0" style="-fx-background-color: transparent;" text="Manage Stock" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                      <items>
                         <MenuItem mnemonicParsing="false" onAction="#AddStockClick" style="-fx-font-size: 17px;" text="Add Stock" />
@@ -72,10 +83,13 @@
                      <effect>
                         <DropShadow />
                      </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </MenuButton>
                   <MenuButton fx:id="menu11112" mnemonicParsing="false" prefHeight="55.0" prefWidth="232.0" style="-fx-background-color: transparent;" text="Company Master" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                      <items>
                         <MenuItem fx:id="i12" mnemonicParsing="false" style="-fx-font-size: 17px;" text="Add Company" />
@@ -84,10 +98,13 @@
                      <effect>
                         <DropShadow />
                      </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </MenuButton>
                   <MenuButton fx:id="menu111121" mnemonicParsing="false" prefHeight="55.0" prefWidth="232.0" style="-fx-background-color: transparent;" text="Reports" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                      <items>
                         <MenuItem fx:id="i121" mnemonicParsing="false" style="-fx-font-size: 17px;" text="Stock Report" />
@@ -96,10 +113,13 @@
                      <effect>
                         <DropShadow />
                      </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </MenuButton>
                </children>
             </VBox>
+            <ScrollPane fx:id="pn2" layoutX="252.0" layoutY="-1.0" prefHeight="771.0" prefWidth="1771.0" />
          </children></AnchorPane>
-    <AnchorPane fx:id="pane2" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);" />
   </items>
 </SplitPane>

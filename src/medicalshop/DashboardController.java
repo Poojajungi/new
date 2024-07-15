@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.ImageView;
@@ -25,11 +26,7 @@ public class DashboardController implements Initializable {
     @FXML
     private AnchorPane pane1;
     @FXML
-    private AnchorPane pane2;
-    @FXML
     private ImageView imgdash;
-    @FXML
-    private MenuButton menu11;
     @FXML
     private MenuItem p1;
     @FXML
@@ -69,6 +66,8 @@ public class DashboardController implements Initializable {
     @FXML
     private MenuItem i221;
      AnchorPane ap = new AnchorPane();
+    @FXML
+    private ScrollPane pn2;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -82,7 +81,7 @@ public class DashboardController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("category.fxml"));
                 ap = loader.load();
                 ap.getStylesheets().add(getClass().getResource("category_design.css").toExternalForm());
-                pane2.getChildren().addAll(ap);
+                pn2.setContent(ap);
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -94,7 +93,7 @@ public class DashboardController implements Initializable {
               ap.getChildren().clear();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("viewcategory.fxml"));
                 ap = loader.load();
-                pane2.getChildren().addAll(ap);
+                 pn2.setContent(ap);
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -107,7 +106,7 @@ public class DashboardController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("medicines.fxml"));
                 ap = loader.load();
                 ap.getStylesheets().add(getClass().getResource("medi_design.css").toExternalForm());
-                pane2.getChildren().addAll(ap);
+                 pn2.setContent(ap);
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -120,7 +119,7 @@ public class DashboardController implements Initializable {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("stock.fxml"));
                 ap = loader.load();
                 ap.getStylesheets().add(getClass().getResource("stock_design.css").toExternalForm());
-                pane2.getChildren().addAll(ap);
+                 pn2.setContent(ap);
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -132,7 +131,7 @@ public class DashboardController implements Initializable {
               ap.getChildren().clear();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("returnStock.fxml"));
                 ap = loader.load();
-                pane2.getChildren().addAll(ap);
+                 pn2.setContent(ap);
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -144,7 +143,7 @@ public class DashboardController implements Initializable {
                 ap.getChildren().clear();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("vieworder.fxml"));
                 ap = loader.load();
-                pane2.getChildren().addAll(ap);
+                 pn2.setContent(ap);
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -156,7 +155,7 @@ public class DashboardController implements Initializable {
               ap.getChildren().clear();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("viewReturn.fxml"));
                 ap = loader.load();
-                pane2.getChildren().addAll(ap);
+                 pn2.setContent(ap);
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -168,7 +167,7 @@ public class DashboardController implements Initializable {
               ap.getChildren().clear();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("companyReturn.fxml"));
                 ap = loader.load();
-                pane2.getChildren().addAll(ap);
+                 pn2.setContent(ap);
             } catch (Exception e) {
                 System.out.println(e);
             }
