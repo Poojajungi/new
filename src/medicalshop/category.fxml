@@ -11,19 +11,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="558.0" prefWidth="1158.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicalshop.CategoryController">
+<AnchorPane id="AnchorPane" prefHeight="1020.0" prefWidth="1421.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicalshop.CategoryController">
    <children>
-      <Label fx:id="title" layoutX="751.0" layoutY="49.0" style="-fx-text-fill: linear-gradient(from 0% 0% to 100% 0%,#6f085a 0%,#c51c53 100%);" text="Category Details">
+      <Label fx:id="title" layoutX="1078.0" layoutY="315.0" style="-fx-text-fill: linear-gradient(from 0% 0% to 100% 0%,#6f085a 0%,#c51c53 100%);" text="Category Details">
          <font>
             <Font name="Times New Roman Bold" size="34.0" />
          </font>
       </Label>
-      <Label layoutX="722.0" layoutY="163.0" style="-fx-text-fill: linear-gradient(from 0% 0% to 100% 0%,#6f085a 0%,#c51c53 100%);" text="Category Name :">
+      <Label layoutX="1049.0" layoutY="429.0" style="-fx-text-fill: linear-gradient(from 0% 0% to 100% 0%,#6f085a 0%,#c51c53 100%);" text="Category Name :">
          <font>
             <Font name="Times New Roman Bold" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="name" layoutX="715.0" layoutY="211.0" prefHeight="33.0" prefWidth="332.0" promptText="Enter Name">
+      <TextField fx:id="name" layoutX="1042.0" layoutY="477.0" prefHeight="33.0" prefWidth="332.0" promptText="Enter Name">
          <font>
             <Font name="Times New Roman Bold" size="16.0" />
          </font>
@@ -31,7 +31,7 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </TextField>
-      <Button layoutX="727.0" layoutY="343.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="39.0" prefWidth="154.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#184E68 0%,#57CA85 100%); -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="Add Category" textFill="#f7f3f3">
+      <Button layoutX="1054.0" layoutY="609.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="39.0" prefWidth="154.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#184E68 0%,#57CA85 100%); -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="Add Category" textFill="#f7f3f3">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -42,7 +42,7 @@
             <DropShadow />
          </effect>
       </Button>
-      <Button layoutX="927.0" layoutY="343.0" mnemonicParsing="false" onAction="#btnCancel" prefHeight="39.0" prefWidth="94.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#F68670 0%,#EFA451 100%); -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="Cancel" textFill="#faf6f6">
+      <Button layoutX="1253.0" layoutY="609.0" mnemonicParsing="false" onAction="#btnCancel" prefHeight="39.0" prefWidth="94.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#F68670 0%,#EFA451 100%); -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="Cancel" textFill="#faf6f6">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -53,8 +53,8 @@
             <DropShadow />
          </effect>
       </Button>
-      <VBox fx:id="vb" prefHeight="558.0" prefWidth="562.0" />
-      <ImageView fitHeight="46.0" fitWidth="56.0" layoutX="696.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+      <VBox fx:id="vb" prefHeight="1020.0" prefWidth="959.0" />
+      <ImageView fitHeight="46.0" fitWidth="56.0" layoutX="1023.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/det.png" />
          </image>
@@ -62,7 +62,7 @@
             <DropShadow />
          </effect>
       </ImageView>
-      <ImageView fitHeight="46.0" fitWidth="56.0" layoutX="998.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="46.0" fitWidth="56.0" layoutX="1325.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/det.png" />
          </image>

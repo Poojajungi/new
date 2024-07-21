@@ -12,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="1861.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicalshop.CompanyReturnController">
    <children>
-      <TableView fx:id="tbl" layoutX="35.0" layoutY="120.0" prefHeight="347.0" prefWidth="1791.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);">
+      <TableView fx:id="tbl" layoutX="35.0" layoutY="120.0" prefHeight="347.0" prefWidth="1639.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);">
          <columns>
             <TableColumn fx:id="mid" prefWidth="101.60000610351562" text="Medicine_id" />
             <TableColumn fx:id="mname" prefWidth="123.20001220703125" text="Medicine_Name" />

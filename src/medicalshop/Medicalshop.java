@@ -18,6 +18,7 @@ public class Medicalshop extends Application {
         Scene scene = new Scene(root);
          scene.getStylesheets().add(getClass().getResource("dashboard_design.css").toExternalForm());
         primaryStage.setScene(scene);
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 

@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="body" prefHeight="593.0" prefWidth="1868.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicalshop.ViewReturnController">
+<AnchorPane id="AnchorPane" fx:id="body" prefHeight="642.0" prefWidth="1868.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="medicalshop.ViewReturnController">
    <children>
-      <TableView fx:id="tbl" layoutX="36.0" layoutY="111.0" onMouseClicked="#mouseClick" prefHeight="347.0" prefWidth="1791.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);">
+      <TableView fx:id="tbl" layoutX="36.0" layoutY="111.0" onMouseClicked="#mouseClick" prefHeight="347.0" prefWidth="1514.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#BCECFF 0%,#FCF5EC 100%);">
          <columns>
             <TableColumn fx:id="mid" prefWidth="101.60000610351562" text="Medicine_id" />
             <TableColumn fx:id="mname" prefWidth="123.20001220703125" text="Medicine_Name" />
@@ -69,7 +69,7 @@
             <Font name="System Bold" size="23.0" />
          </font>
       </Label>
-      <Button layoutX="1559.0" layoutY="495.0" mnemonicParsing="false" onAction="#btnDetails" prefHeight="38.0" prefWidth="268.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#2fbdff 0%,#ff7582 100%); -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="Company Received Stocks" textFill="WHITE">
+      <Button layoutX="1268.0" layoutY="479.0" mnemonicParsing="false" onAction="#btnDetails" prefHeight="38.0" prefWidth="268.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%,#2fbdff 0%,#ff7582 100%); -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="Company Received Stocks" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
