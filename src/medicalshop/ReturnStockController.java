@@ -1,6 +1,5 @@
 package medicalshop;
 
-import com.sun.jnlp.ApiDialog;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -63,8 +62,7 @@ public class ReturnStockController implements Initializable {
     private AnchorPane body;
     @FXML
     private Label total;
-    
-     
+     AnchorPane apn = new AnchorPane();
      int newid;
      int  qtyy;
     String cate, name, b,comp;
@@ -156,14 +154,22 @@ public class ReturnStockController implements Initializable {
   
     @FXML
     private void btnSelect(ActionEvent event) throws IOException {
+            
            body.getScene().getWindow().hide();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("vieworder.fxml"));
+           
+             FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
              Parent root = loader.load();
-             VieworderController r = loader.getController();
+               DashboardController d = loader.getController();
+               FXMLLoader loading = new FXMLLoader(getClass().getResource("vieworder.fxml"));
+               apn = loading.load();
+               d.pn2.setContent(apn);
+               apn.prefHeightProperty().bind(d.pn2.heightProperty());
               Stage primaryStage = new Stage();
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("dashboard_design.css").toExternalForm());
             primaryStage.setScene(scene);
+            primaryStage.setMaximized(true);
             primaryStage.show();
     }
-            
+
 }

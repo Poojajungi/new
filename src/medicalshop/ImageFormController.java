@@ -2,15 +2,11 @@ package medicalshop;
 
 import java.awt.Frame;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
 import java.net.URL;
 import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
-import javafx.beans.binding.Bindings;
-import javafx.beans.property.DoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,14 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
 import javafx.stage.FileChooser;
-import javafx.util.Duration;
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
-import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -80,7 +69,7 @@ public class ImageFormController extends Frame implements Initializable {
                     DialogPane d = alert.getDialogPane();
                     d.getStylesheets().add(getClass().getResource("alertDesign.css").toString());
                     d.getStyleClass().add("dialog");
-                    alert.showAndWait();
+                    alert.showAndWait();    
             } 
             else{
             jr = JasperCompileManager.compileReport("E:\\javaprograms\\medicalshop\\src\\Reports\\simple.jrxml");

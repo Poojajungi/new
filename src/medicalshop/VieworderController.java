@@ -63,7 +63,8 @@ public class VieworderController implements Initializable {
       crud cr = new crud();
         Connection conn;
        ObservableList<tblreorder> listM = FXCollections.observableArrayList() ;
-     ObservableList<tblreorder> da = FXCollections.observableArrayList();
+     static ObservableList<tblreorder> da = FXCollections.observableArrayList();
+     AnchorPane apn = new AnchorPane();
     @FXML
     private AnchorPane Viewbody;
     @FXML
@@ -152,14 +153,32 @@ public class VieworderController implements Initializable {
         try{
             da = tbl.getSelectionModel().getSelectedItems();
             Viewbody.getScene().getWindow().hide();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("returnStock.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Dashboard.fxml"));
              Parent root = loader.load();
-             ReturnStockController r = loader.getController();
-             r.redisplayed(da);
-
+             DashboardController d = loader.getController();
+             FXMLLoader loading = new FXMLLoader(getClass().getResource("returnStock.fxml"));
+             Parent returnContent = loading.load();
+            ReturnStockController  r = loading.getController();
+         
+             if (r == null) {
+                System.out.println("null");
+            } else {
+                r.redisplayed(da);
+              }
+    
+             apn.getChildren().add(returnContent);
+             d.pn2.setContent(apn);
+            apn.prefHeightProperty().bind(d.pn2.heightProperty());
+            apn.prefWidthProperty().bind(d.pn2.widthProperty());
+          //  apn.prefHeight(d.pn2.getHeight());
+//            apn.maxHeightProperty().bind(d.pn2.heightProperty());
+//            apn.minHeightProperty().bind(d.pn2.heightProperty());
+//            
             Stage primaryStage = new Stage();
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("dashboard_design.css").toExternalForm());
             primaryStage.setScene(scene);
+            primaryStage.setMaximized(true);
             primaryStage.show();
         }catch(Exception e)
         {

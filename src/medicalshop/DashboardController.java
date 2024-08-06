@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
@@ -17,7 +18,7 @@ import javafx.scene.layout.AnchorPane;
 public class DashboardController implements Initializable {
 
     @FXML
-    private SplitPane split;
+    public SplitPane split;
     @FXML
     private AnchorPane pane1;
     @FXML
@@ -34,7 +35,7 @@ public class DashboardController implements Initializable {
     private MenuItem i221;
     AnchorPane ap = new AnchorPane();
     @FXML
-    private ScrollPane pn2;
+    public ScrollPane pn2;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -109,6 +110,8 @@ public class DashboardController implements Initializable {
             ap = loader.load();
             pn2.setContent(ap);
             ap.prefHeightProperty().bind(pn2.heightProperty());
+            //ReturnStockController r = new ReturnStockController();
+            
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -192,5 +195,7 @@ public class DashboardController implements Initializable {
             System.out.println(e);
         }
     }
+    
+  
 
 }
