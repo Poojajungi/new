@@ -213,10 +213,9 @@ public class ViewReturnController implements Initializable {
 
     @FXML
     private void btnDetails(ActionEvent event) {
-        String imagepath = "C:\\Users\\poojajungi\\Downloads\\hand.png";
-       ImageIcon icon = new ImageIcon(imagepath);
+        
         if (tbl.getSelectionModel().getSelectedItems().size()==0) {
-            JOptionPane.showMessageDialog(null, "Please Select the Items.","Null Selection",JOptionPane.PLAIN_MESSAGE,icon);
+            JOptionPane.showMessageDialog(null, "Please Select the Items.","Null Selection",JOptionPane.WARNING_MESSAGE);
         }
         else{
             try {

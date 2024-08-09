@@ -98,13 +98,9 @@ public class ReturnStockController implements Initializable {
        }
     @FXML
     private void btnReturn(ActionEvent event){
-         String imagepath = "C:\\Users\\poojajungi\\Downloads\\delivery.png";
-         String path ="C:\\Users\\poojajungi\\Downloads\\hand.png";
-       ImageIcon icon = new ImageIcon(imagepath);
-       ImageIcon icon2 = new ImageIcon(path);
        int  n = newtbl.getItems().size();
         if (n==0) {
-            JOptionPane.showMessageDialog(null, "Please Select the Stocks.","Null Selection",JOptionPane.PLAIN_MESSAGE,icon2);
+            JOptionPane.showMessageDialog(null, "Please Select the Stocks.","Null Selection",JOptionPane.WARNING_MESSAGE);
         }
        
         try {
@@ -142,7 +138,7 @@ public class ReturnStockController implements Initializable {
             }    
             if(res>0)
             {
-                         JOptionPane.showMessageDialog(null, "Stock Return Successfully.","ReturnStock Message",JOptionPane.PLAIN_MESSAGE,icon);
+                         JOptionPane.showMessageDialog(null, "Stock Return Successfully.","ReturnStock Message",JOptionPane.WARNING_MESSAGE);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e,"ReturnStock Message",JOptionPane.ERROR_MESSAGE);

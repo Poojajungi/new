@@ -144,10 +144,9 @@ public class VieworderController implements Initializable {
 
     @FXML
     private void btnReturn(ActionEvent event) {
-       String imagepath = "C:\\Users\\poojajungi\\Downloads\\hand.png";
-       ImageIcon icon = new ImageIcon(imagepath);
+
         if (tbl.getSelectionModel().getSelectedItems().size()==0) {
-            JOptionPane.showMessageDialog(null, "Please Select the Items.","Null Selection",JOptionPane.PLAIN_MESSAGE,icon);
+            JOptionPane.showMessageDialog(null, "Please Select the Items.","Null Selection",JOptionPane.WARNING_MESSAGE);
         }
         else{
         try{
@@ -170,17 +169,6 @@ public class VieworderController implements Initializable {
             
             apn.prefHeightProperty().bind(d.pn2.heightProperty());
             d.pn2.setContent(apn);
-           //  apn.prefHeightProperty().bind(Viewbody.heightProperty());
-       //     apn.setPrefHeight(Double.MAX_VALUE);
-            //apn.prefWidthProperty().bind(d.pn2.widthProperty());
-          //  apn.prefHeight(d.pn2.getHeight());
-//            apn.maxHeightProperty().bind(d.pn2.heightProperty());
-//            apn.minHeightProperty().bind(d.pn2.heightProperty());
-//            
-//              AnchorPane.setTopAnchor(apn, 0.0);
-//            AnchorPane.setLeftAnchor(apn , 0.0);
-//            AnchorPane.setRightAnchor(apn, 0.0);
-//            AnchorPane.setBottomAnchor(apn, 0.0);
              
             Stage primaryStage = new Stage();
             Scene scene = new Scene(root);

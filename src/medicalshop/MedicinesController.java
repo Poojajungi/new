@@ -1,7 +1,6 @@
 package medicalshop;
 
-import com.mysql.jdbc.MySQLConnection;
-import java.io.IOException;
+
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
