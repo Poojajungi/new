@@ -14,8 +14,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -76,7 +74,7 @@ public class ReturnStockController implements Initializable {
        
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+           
     }    
    
             public void redisplayed(ObservableList<tblreorder> list)

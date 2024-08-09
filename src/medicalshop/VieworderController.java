@@ -167,13 +167,21 @@ public class VieworderController implements Initializable {
               }
     
              apn.getChildren().add(returnContent);
-             d.pn2.setContent(apn);
+            
             apn.prefHeightProperty().bind(d.pn2.heightProperty());
-            apn.prefWidthProperty().bind(d.pn2.widthProperty());
+            d.pn2.setContent(apn);
+           //  apn.prefHeightProperty().bind(Viewbody.heightProperty());
+       //     apn.setPrefHeight(Double.MAX_VALUE);
+            //apn.prefWidthProperty().bind(d.pn2.widthProperty());
           //  apn.prefHeight(d.pn2.getHeight());
 //            apn.maxHeightProperty().bind(d.pn2.heightProperty());
 //            apn.minHeightProperty().bind(d.pn2.heightProperty());
 //            
+//              AnchorPane.setTopAnchor(apn, 0.0);
+//            AnchorPane.setLeftAnchor(apn , 0.0);
+//            AnchorPane.setRightAnchor(apn, 0.0);
+//            AnchorPane.setBottomAnchor(apn, 0.0);
+             
             Stage primaryStage = new Stage();
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("dashboard_design.css").toExternalForm());
